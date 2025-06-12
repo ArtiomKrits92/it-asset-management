@@ -30,8 +30,8 @@ This project is a result of the great collaboration of the two authors:
 
 ## 6. Feedback
 If you have any feedback, feel free to contact us via email: 
-- mailto:dcoacher@outlook.com
-- mailto:artiomkrits92@gmail.com
+- [Desmond Coacher](mailto:dcoacher@outlook.com)
+- [Artiom Krits](mailto:artiomkrits92@gmail.com)
 
 ## Bonus: Tech Notes for Authors
 Main Menu Structure:
