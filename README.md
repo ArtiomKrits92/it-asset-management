@@ -35,10 +35,12 @@ TBA
 - Calculate Stock by Categories<br>
 
 ### 2.3 Project Files
-- *python directory* contains pure Python code
-- *website directory* contains website data like HTML pages etc.
-- *docker direcrtory* contains Dockerfile
-- *aws directory* contains data relevant to AWS deployment
+- *python* directory contains pure Python code:
+    - *main.py* is the main project file
+    - *functions.py* contains functions for reusable logic of the main file
+- *website* directory contains website data like HTML pages etc.
+- *docker* directory contains Dockerfile
+- *aws* directory contains data relevant to AWS deployment
 
 ## 3. Deployment & Implementation
 TBA
@@ -47,7 +49,7 @@ TBA
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
 
 ## 5. Authors
-This project is a result of the great collaboration of the two authors:
+This project is a result of the great collaboration of the two developers:
 - Desmond Coacher - [@dcoacher](https://github.com/dcoacher)
 - Artiom Krits - [@ArtiomKrits92](https://github.com/ArtiomKrits92)
 
