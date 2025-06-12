@@ -38,6 +38,7 @@ TBA
 - *python* directory contains pure Python code:
     - *main.py* is the main project file
     - *functions.py* contains functions for reusable logic of the main file
+    - *demo-data.py* contains pre-created and loaded db data for demonstration purposes
 - *website* directory contains website data like HTML pages etc.
 - *docker* directory contains Dockerfile
 - *aws* directory contains data relevant to AWS deployment
