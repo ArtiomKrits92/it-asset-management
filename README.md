@@ -23,7 +23,16 @@ TBA
 TBA
 
 ### 2.2 Main Menu
-TBA
+1. Add New Item<br>
+2. Delete Item<br>
+3. Modify Item<br>
+4. Assign Item<br>
+5. Add New User<br>
+6. Show All Users<br>
+7. Show All Items by the User<br>
+8. Sort Items by Name (A-Z)<br>
+9. Sort Items by Price (₪ - ₪₪₪)<br>
+0. Calculate Stock by Categories<br>
 
 ### 2.3 Project Files
 - *python directory* contains pure Python code
