@@ -1,3 +1,4 @@
+![Logo]([https://png.pngtree.com/png-vector/20220910/ourmid/pngtree-budgeting-icon-png-image_6145091.png](https://img.lovepik.com/element/45009/8629.png_300.png))
 # it-asset-management
 Description: IT Asset Management system based on Apache webserver
 
