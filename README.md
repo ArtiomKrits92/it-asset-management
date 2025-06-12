@@ -34,3 +34,11 @@ Entry Data Keys and Explainations:
 
 9. Sort Items by Price (₪ - ₪₪₪) - The items will be sorted by Price from cheapest to expensive including name, category, quantity and price
 0. Calculate Stock by Categories - All Stock will be calculated in ILS currency and displayed per Category.
+
+## Table Of Contents
+1. Introduction
+2. Code Explaination
+3. Deployment & Implementation
+4. License
+5. Authors
+6. Feedback
