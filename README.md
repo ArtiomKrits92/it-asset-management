@@ -1,6 +1,7 @@
-![Logo](https://img.lovepik.com/element/45009/8629.png_300.png)
-# it-asset-management
-Description: IT Asset Management system based on Apache webserver
+# IT Asset Management
+Make your IT-related asset process simple and controlled. This Web-based system runs on Apache will make it happen.
+
+![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
 Main Menu Structure:
 Entry Data Keys:
