@@ -35,13 +35,13 @@ TBA
 - Calculate Stock by Categories<br>
 
 ### 2.3 Project Files
-- *python* directory contains pure Python code:
+- :file_folder: *python* directory contains pure Python code:
     - *main.py* is the main project file
     - *functions.py* contains functions for reusable logic of the main file
     - *demo-data.py* contains pre-created and loaded db data for demonstration purposes
-- *website* directory contains website data like HTML pages etc.
-- *docker* directory contains Dockerfile
-- *aws* directory contains data relevant to AWS deployment
+- :file_folder: *website* directory contains website data like HTML pages etc.
+- :file_folder: *docker* directory contains Dockerfile
+- :file_folder: *aws* directory contains data relevant to AWS deployment
 
 ## 3. Deployment & Implementation
 TBA
