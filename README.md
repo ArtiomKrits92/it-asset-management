@@ -25,7 +25,10 @@ TBA
 TBA
 
 ### 2.3 Project Files
-TBA
+- *python directory* contains pure Python code
+- *website directory* contains website data like HTML pages etc.
+- *docker direcrtory* contains Dockerfile
+- *aws directory* contains data relevant to AWS deployment
 
 ## 3. Deployment & Implementation
 TBA
