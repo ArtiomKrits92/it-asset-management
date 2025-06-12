@@ -6,6 +6,9 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 ## Table Of Contents
 1. Introduction
 2. Code Explaination
+    2.1 Data Structure
+    2.2 Main Menu
+    2.3 Project Files
 3. Deployment & Implementation
 4. License
 5. Authors
@@ -15,6 +18,13 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 TBA
 
 ## 2. Code Explaination
+### 2.1 Data Structure
+TBA
+
+### 2.2 Main Menu
+TBA
+
+### 2.3 Project Files
 TBA
 
 ## 3. Deployment & Implementation
