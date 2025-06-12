@@ -6,9 +6,9 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 ## Table Of Contents
 1. Introduction
 2. Code Explaination
-    2.1 Data Structure
-    2.2 Main Menu
-    2.3 Project Files
+    2.1 Data Structure<br>
+    2.2 Main Menu<br>
+    2.3 Project Files<br>
 3. Deployment & Implementation
 4. License
 5. Authors
