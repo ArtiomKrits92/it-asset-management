@@ -3,6 +3,37 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
+## Table Of Contents
+1. Introduction
+2. Code Explaination
+3. Deployment & Implementation
+4. License
+5. Authors
+6. Feedback
+
+## 1. Introduction
+TBA
+
+## 2. Code Explaination
+TBA
+
+## 3. Deployment & Implementation
+TBA
+
+## 4. License
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
+
+## 5. Authors
+This project is a result of the great collaboration of the two authors:
+- Desmond Coacher - [@dcoacher](https://github.com/dcoacher)
+- Artiom Krits - [@ArtiomKrits92](https://github.com/ArtiomKrits92)
+
+## 6. Feedback
+If you have any feedback, feel free to contact us via email: 
+- mailto:dcoacher@outlook.com
+- mailto:artiomkrits92@gmail.com
+
+## Bonus: Tech Notes for Authors
 Main Menu Structure:
 Entry Data Keys:
 1. Add New Item
@@ -34,11 +65,3 @@ Entry Data Keys and Explainations:
 
 9. Sort Items by Price (₪ - ₪₪₪) - The items will be sorted by Price from cheapest to expensive including name, category, quantity and price
 0. Calculate Stock by Categories - All Stock will be calculated in ILS currency and displayed per Category.
-
-## Table Of Contents
-1. Introduction
-2. Code Explaination
-3. Deployment & Implementation
-4. License
-5. Authors
-6. Feedback
