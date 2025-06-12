@@ -1,5 +1,6 @@
 # IT Asset Management
 Make your IT-related asset process simple and controlled. This Web-based system runs on Apache will make it happen.
+* Note: Work in Progress. The final version may differ.
 
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
