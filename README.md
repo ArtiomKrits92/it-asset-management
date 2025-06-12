@@ -23,16 +23,16 @@ TBA
 TBA
 
 ### 2.2 Main Menu
-- Add New Item<br>
-- Delete Item<br>
-- Modify Item<br>
-- Assign Item<br>
-- Add New User<br>
-- Show All Users<br>
-- Show All Items by the User<br>
-- Sort Items by Name (A-Z)<br>
-- Sort Items by Price (₪ - ₪₪₪)<br>
-- Calculate Stock by Categories<br>
+- :one: Add New Item<br>
+- :two: Delete Item<br>
+- :three: Modify Item<br>
+- :four: Assign Item<br>
+- :five: Add New User<br>
+- :six: Show All Users<br>
+- :seven: Show All Items by the User<br>
+- :eight: Sort Items by Name (A-Z)<br>
+- :nine: Sort Items by Price (₪ - ₪₪₪)<br>
+- :zero: Calculate Stock by Categories<br>
 
 ### 2.3 Project Files
 - :file_folder: *python* directory contains pure Python code:
