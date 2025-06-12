@@ -4,15 +4,15 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
 ## Table Of Contents
-1. Introduction
-2. Code Explaination
+1. Introduction<br>
+2. Code Explaination<br>
     2.1 Data Structure<br>
     2.2 Main Menu<br>
     2.3 Project Files<br>
-3. Deployment & Implementation
-4. License
-5. Authors
-6. Feedback
+3. Deployment & Implementation<br>
+4. License<br>
+5. Authors<br>
+6. Feedback<br>
 
 ## 1. Introduction
 TBA
