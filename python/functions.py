@@ -34,7 +34,7 @@ def menu_handler(): # Menu Handler function
 
 def m1():   # Add New Items
     print("Menu Option 1 has been choosen.\n")
-    print(db)
+    print (db)
 
 def m2():   # Delete Item
     print("Menu Option 2 has been choosen.\n")
