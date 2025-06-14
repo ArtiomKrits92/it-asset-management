@@ -1,5 +1,11 @@
 ### This is a Functions file which will contain functions for reusable logic of the Main file.
 import getpass  # Importing Getpass module for password input data masking
+
+### Dummy data pre-loading section (start)
+db = []
+from demo import db
+### Dummy data pre-loading section (end)
+
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
     print("Credits to Desmond Coacher and Artiom Krits.")
@@ -28,6 +34,7 @@ def menu_handler(): # Menu Handler function
 
 def m1():   # Add New Items
     print("Menu Option 1 has been choosen.\n")
+    print(db)
 
 def m2():   # Delete Item
     print("Menu Option 2 has been choosen.\n")
