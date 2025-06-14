@@ -51,8 +51,8 @@ def m5():   # Add New User
 def m6():   # Show All Users
     print("Menu Option 6 has been choosen.\n")
     print("Users List:")
-    for user, name in db["user"].items():
-        print(f"ID: {user}, Full Name: {name}")
+    for id, user in db["user"].items():
+        print(f"ID: {id}, Full Name: {user}")
 
 def m7():   # Show All Items by the User
     print("Menu Option 7 has been choosen.\n")
