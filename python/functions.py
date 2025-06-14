@@ -1,10 +1,11 @@
 ### This is a Functions file which will contain functions for reusable logic of the Main file.
 import getpass  # Importing Getpass module for password input data masking
 
-### Dummy data pre-loading section (start)
-db = []
-from demo import db
-### Dummy data pre-loading section (end)
+db = {  # Database creation for the items, users, and items assaignments
+    "item": {}, # Keys:Values (item_id: item)
+    "user": {}, # Keys:Values (user_id: user)
+    "assignments": {}   # Keys:Values (item_id: user_id)
+}
 
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
@@ -34,7 +35,6 @@ def menu_handler(): # Menu Handler function
 
 def m1():   # Add New Items
     print("Menu Option 1 has been choosen.\n")
-    print (db)
 
 def m2():   # Delete Item
     print("Menu Option 2 has been choosen.\n")
@@ -50,6 +50,9 @@ def m5():   # Add New User
 
 def m6():   # Show All Users
     print("Menu Option 6 has been choosen.\n")
+    print("Users List:")
+    for user, name in db["user"].items():
+        print(f"ID: {user}, Full Name: {name}")
 
 def m7():   # Show All Items by the User
     print("Menu Option 7 has been choosen.\n")
