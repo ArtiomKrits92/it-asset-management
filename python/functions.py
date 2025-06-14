@@ -1,6 +1,5 @@
 ### This is a Functions file which will contain functions for reusable logic of the Main file.
 import getpass  # Importing Getpass module for password input data masking
-
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
     print("Credits to Desmond Coacher and Artiom Krits.")
