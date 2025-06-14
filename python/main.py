@@ -1,7 +1,7 @@
 ### This is a Main file which will contain Welcome Screen and Main Menu features. 
 import functions # Importing functions module from functions.py file
 functions.welcome_screen() # Welcome Screen (will be displayed once and not included to the menu loop)
-# functions.login_screen()    # Adding Login Screen feature using admin username and functions.m()word credentials
+# functions.login_screen()    # Adding Login Screen feature using admin username and password credentials (Temporarily Disabled)
 
 while True: # Start of Loop Menu
     functions.menu_handler()
@@ -46,5 +46,5 @@ while True: # Start of Loop Menu
             print("❌ Error: Incorrect menu option has been choosen. Please try again.") # In case the user's chosen option does not exist
     # End of Menu Options, based on match cases
 
-    input("Press Enter key in order to return to the Main Menu.") # Prompt the input message as a part of the loop for returning to the Main Menu
+#    input("Press Enter key in order to return to the Main Menu.") # Prompt the input message as a part of the loop for returning to the Main Menu (Temporarily Disabled)
 # End of Loop Menu
