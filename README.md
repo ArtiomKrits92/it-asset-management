@@ -38,7 +38,7 @@ TBA
 - :file_folder: *python* directory contains pure Python code:
     - :memo: *main.py* is the main project file
     - :memo: *functions.py* contains functions for reusable logic of the main file
-    - :memo: *demo-data.py* contains pre-created and loaded db data for demonstration purposes
+    - :memo: *demo.py* contains pre-created and loaded dummie data for demonstration purposes
 - :file_folder: *website* directory contains website data like HTML pages etc.
 - :file_folder: *docker* directory contains Dockerfile
 - :file_folder: *aws* directory contains data relevant to AWS deployment
