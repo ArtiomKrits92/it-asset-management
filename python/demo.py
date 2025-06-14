@@ -4,5 +4,5 @@
 from functions import db    # Import database data from functions.py file
 def dummie_data():
     # Pre-loaded users section
-    db["user"]["1"] = "Desmond Coacher"
-    db["user"]["2"] = "Artiom Krits"
+    db["user"]["9998"] = "Desmond Coacher"
+    db["user"]["9999"] = "Artiom Krits"

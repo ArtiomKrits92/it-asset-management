@@ -6,6 +6,7 @@ db = {  # Database creation for the items, users, and items assaignments
     "user": {}, # Keys:Values (user_id: user)
     "assignments": {}   # Keys:Values (item_id: user_id)
 }
+user_id_counter = 1 # Creation of User ID Counter value (will start from 1)
 
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
@@ -47,6 +48,12 @@ def m4():   # Assign User
 
 def m5():   # Add New User
     print("Menu Option 5 has been choosen.\n")
+    user = input("Enter the Full Name: ")   # Prompt for user full name data entering
+    global user_id_counter  # Call user_id_counter value
+    user_id = user_id_counter   # Set the new user's ID the Counter ID current Value
+    db["user"][user_id] = user  # Add the user based on the prompt name and automatically assigned ID using counter to the database
+    user_id_counter += 1    # Update the counter by 1
+    print (f"✅ Success: User {user} was successfully added to the system with the ID `{user_id}`") # Print the success message to the user
 
 def m6():   # Show All Users
     print("Menu Option 6 has been choosen.\n")
