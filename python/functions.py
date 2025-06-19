@@ -1,7 +1,7 @@
 ### This is a Functions file which will contain functions for reusable logic of the Main file.
 import getpass  # Importing Getpass module for password input data masking
 
-db = {  # Database creation for the items, users, and items assaignments
+db = {  # Database creation for the items, users, and items assignments
     "item": {}, # Keys:Values (item_id: item)
     "user": {}, # Keys:Values (user_id: user)
     "assignments": {}   # Keys:Values (item_id: user_id)
