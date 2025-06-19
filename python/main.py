@@ -7,39 +7,39 @@ functions.welcome_screen() # Welcome Screen (will be displayed once and not incl
 # functions.login_screen()    # Adding Login Screen feature using admin username and password credentials (Temporarily Disabled)
 
 while True: # Start of Loop Menu
-    functions.menu_handler()
-    user_choise = input("\nPlease choose menu option (q for exit): ")
+    functions.main_menu_handler()   # Calling Main Menu from Functions file
+    user_choise = input("\nPlease choose menu option (q for exit): ")   # Prompt the user for main menu option choosing
 
     match user_choise:  # Start of Menu Options, based on match cases
         case "1":
-            functions.m1()
+            functions.main_menu_add_new_items()
 
         case "2":
-            functions.m2()
+            functions.main_menu_delete_item()
 
         case "3":
-            functions.m3()
+            functions.main_menu_modify_item()
 
         case "4":
-            functions.m4()
+            functions.main_menu_assign_item()
 
         case "5":
-            functions.m5()
+            functions.main_menu_add_new_user()
 
         case "6":
-            functions.m6()
+            functions.main_menu_show_all_users()
 
         case "7":
-            functions.m7()
+            functions.main_menu_show_all_items_by_the_user()
 
         case "8":
-            functions.m8()
+            functions.main_menu_sort_items_by_name()
 
         case "9":
-            functions.m9()
+            functions.main_menu_sort_items_by_price()
 
         case "0":
-            functions.m0()
+            functions.main_menu_calculate_stock_by_categories()
         
         case "q":   # Exit
             print("Thank you for using our service. See you later!\n")   # Print goodbye message to the user before quit the loop

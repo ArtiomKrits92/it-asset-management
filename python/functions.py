@@ -22,7 +22,7 @@ def login_screen(): # Login Screen function
         else:
             print("❌ Error: Incorrect username/password data has been entered. Please try again.\n")   # Incorrect data provided case, return to the loop start
 
-def menu_handler(): # Menu Handler function
+def main_menu_handler(): # Menu Handler function
     print("\n1. Add New Item")
     print("2. Delete Item")
     print("3. Modify Item")
@@ -34,19 +34,19 @@ def menu_handler(): # Menu Handler function
     print("9. Sort Items by Price (₪ - ₪₪₪)")
     print("0. Calculate Stock by Categories\n")
 
-def m1():   # Add New Items
+def main_menu_add_new_items():   # Add New Items
     print("Menu Option 1 has been choosen.\n")
 
-def m2():   # Delete Item
+def main_menu_delete_item():   # Delete Item
     print("Menu Option 2 has been choosen.\n")
 
-def m3():   # Modify Item
+def main_menu_modify_item():   # Modify Item
     print("Menu Option 3 has been choosen.\n")
 
-def m4():   # Assign User
+def main_menu_assign_item():   # Assign User
     print("Menu Option 4 has been choosen.\n")
 
-def m5():   # Add New User
+def main_menu_add_new_user():   # Add New User
     print("Menu Option 5 has been choosen.\n")
     user = input("Enter the Full Name: ")   # Prompt for user full name data entering
     global user_id_counter  # Call user_id_counter value
@@ -55,21 +55,21 @@ def m5():   # Add New User
     user_id_counter += 1    # Update the counter by 1
     print (f"✅ Success: User {user} was successfully added to the system with the ID `{user_id}`") # Print the success message to the user
 
-def m6():   # Show All Users
+def main_menu_show_all_users():   # Show All Users
     print("Menu Option 6 has been choosen.\n")
     print("Users List:")
     for id, user in db["user"].items():
         print(f"ID: {id}, Full Name: {user}")
 
-def m7():   # Show All Items by the User
+def main_menu_show_all_items_by_the_user():   # Show All Items by the User
     print("Menu Option 7 has been choosen.\n")
 
-def m8():   # Sort Items by Name (A-Z)
+def main_menu_sort_items_by_name():   # Sort Items by Name (A-Z)
     print("Menu Option 8 has been choosen.\n")
 
-def m9():   # Sort Items by Price (₪ - ₪₪₪)
+def main_menu_sort_items_by_price():   # Sort Items by Price (₪ - ₪₪₪)
     print("Menu Option 9 has been choosen.\n")
 
-def m0():   # Calculate Stock by Categories
+def main_menu_calculate_stock_by_categories():   # Calculate Stock by Categories
     print("Menu Option 0 has been choosen.\n")
 
