@@ -6,7 +6,15 @@ db = {  # Database creation for the items, users, and items assignments
     "user": {}, # Keys:Values (user_id: user)
     "assignments": {}   # Keys:Values (item_id: user_id)
 }
+
+category_db = { # Main and Secondary categories database creation ("Main_Cat": ["Sec_Cat1", "Sec_Cat2", etc.])
+    "Assets": ["PC", "Laptop"],
+    "Accessories": ["Mouse", "Keyboard", "Docking Station", "Monitor", "Headset"],
+    "Licenses": ["Serial Number", "Subscription"]
+}
+
 user_id_counter = 1 # Creation of User ID Counter value (will start from 1)
+item_id_counter = 1 # Creation of Item ID Counter value (will start from 1)
 
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
@@ -36,12 +44,92 @@ def main_menu_handler(): # Menu Handler function
 
 def main_menu_add_new_items():   # Add New Items
     print("Menu Option 1 has been choosen.\n")
+    while True:
+        main_category = input("Choose Main Category (Assets, Accessories, Licenses): ")
+        if main_category not in category_db:
+            print("❌ Error: Invalid main category has been choosen.")
+            break
+        elif main_category == "Assets":
+            secondary_category = input(f"Choose Secondary Category (PC, Laptop): ")
+        elif main_category == "Accessories":
+            secondary_category = input(f"Choose Secondary Category (Mouse, Keyboard, Docking Station, Monitor, Headset): ")
+        elif main_category == "Licenses":
+            secondary_category = input(f"Choose Secondary Category (Serial Number, Subscription): ")
+
+        if secondary_category not in category_db[main_category]:
+            print("❌ Error: Invalid secondary category has been choosen.")
+            break
+        item_manufacturer = input("Enter Manufacturer: ")
+        item_model = input("Enter the Model: ")
+        try:
+            item_price_per_unit = float(input("Enter Price per Unit in ILS Currency: "))
+        except ValueError:
+            print("❌ Error: Provided value must be numberic.")
+            break
+        item_quantity = 1
+
+        global item_id_counter  # Call user_id_counter value
+        item_id = item_id_counter   # Set the new item's ID the Counter ID current Value
+        db["item"][item_id] = {
+            "main_category": main_category,
+            "secondary_category": secondary_category,
+            "manufacturer": item_manufacturer,
+            "model": item_model,
+            "price_per_unit": item_price_per_unit,
+            "quantity": int(item_quantity),
+            "status": "In Stock"
+        }
+        item_id_counter += 1    # Update the counter by 1
+        print(f"✅ Success: The Item was successfully added to the system with the ID `{item_id}`.")
+        assign_now = input("Do you want to assign this item now? (y/n): ")
+        if assign_now.lower() == "y":
+            pass    # Here will be calling the function of assigning the item
+        else:
+            break
 
 def main_menu_delete_item():   # Delete Item
     print("Menu Option 2 has been choosen.\n")
+    while True:
+        try:
+            item_id = int(input("Enter Item ID to delete: "))
+        except ValueError:
+            print("❌ Error: Provided value must be numberic.")
+            break
+        if item_id in db["item"]:
+            del db["item"][item_id]
+            db["assignments"].pop(item_id, None)
+            print(f"✅ Success: The Item was successfully deleted from the system.")
+            break
+        else:
+            print(f"❌ Error: The Item with the ID `{item_id}` is not found in the system.")
+            break
 
 def main_menu_modify_item():   # Modify Item
     print("Menu Option 3 has been choosen.\n")
+    while True:
+        try:
+            item_id = int(input("Enter Item ID to modify: "))
+        except ValueError:
+            print("❌ Error: Provided value must be numberic.")
+            break
+        if item_id in db["item"]:
+            try:
+                change_type = int(input("\nWhich Change do you Want to Perform?\n1. Manufacturer\n2. Model\n3. Price per Unit\nPlease choose the option: "))
+            except ValueError:
+                print("❌ Error: Provided value must be numberic.")
+                break    
+            if change_type == 1:
+                pass
+            elif change_type == 2:
+                pass
+            elif change_type == 3:
+                pass
+            else:
+                print("❌ Error: Invalid option has been choosen.")
+                break
+        else:
+            print(f"❌ Error: The Item with the ID `{item_id}` is not found in the system.")
+            break
 
 def main_menu_assign_item():   # Assign User
     print("Menu Option 4 has been choosen.\n")
@@ -53,7 +141,7 @@ def main_menu_add_new_user():   # Add New User
     user_id = user_id_counter   # Set the new user's ID the Counter ID current Value
     db["user"][user_id] = user  # Add the user based on the prompt name and automatically assigned ID using counter to the database
     user_id_counter += 1    # Update the counter by 1
-    print (f"✅ Success: User {user} was successfully added to the system with the ID `{user_id}`") # Print the success message to the user
+    print (f"✅ Success: The User `{user}` was successfully added to the system with the ID `{user_id}`.") # Print the success message to the user
 
 def main_menu_show_all_users():   # Show All Users
     print("Menu Option 6 has been choosen.\n")
