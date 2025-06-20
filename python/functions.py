@@ -99,7 +99,7 @@ def main_menu_delete_item():   # Delete Item
         if item_id in db["item"]:
             del db["item"][item_id]
             db["assignments"].pop(item_id, None)
-            print(f"✅ Success: The Item was successfully deleted from the system.")
+            print(f"✅ Success: The Item with the ID `{item_id}` was successfully deleted from the system.")
             break
         else:
             print(f"❌ Error: The Item with the ID `{item_id}` is not found in the system.")
