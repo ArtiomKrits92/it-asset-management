@@ -8,7 +8,7 @@ functions.welcome_screen() # Welcome Screen (will be displayed once and not incl
 
 while True: # Start of Loop Menu
     functions.main_menu_handler()   # Calling Main Menu from Functions file
-    user_choise = input("\nPlease choose menu option (q for exit): ")   # Prompt the user for main menu option choosing
+    user_choise = input("Please choose menu option (q for exit): ")   # Prompt the user for main menu option choosing
 
     match user_choise:  # Start of Menu Options, based on match cases
         case "1":

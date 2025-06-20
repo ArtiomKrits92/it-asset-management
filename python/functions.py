@@ -81,9 +81,10 @@ def main_menu_add_new_items():   # Add New Items
         }
         item_id_counter += 1    # Update the counter by 1
         print(f"✅ Success: The Item was successfully added to the system with the ID `{item_id}`.")
-        assign_now = input("Do you want to assign this item now? (y/n): ")
-        if assign_now.lower() == "y":
-            pass    # Here will be calling the function of assigning the item
+        choise = input("Do you want to assign this item now? (y/n): ")
+        if choise.lower() == "y":
+            main_menu_assign_item()
+            break
         else:
             break
 
@@ -133,8 +134,38 @@ def main_menu_modify_item():   # Modify Item
 
 def main_menu_assign_item():   # Assign User
     print("Menu Option 4 has been choosen.\n")
-    print(db)
-    print(category_db)
+    while True:
+        if not db["item"]:
+            print("There are no items existing in the system.")
+            break
+        if not db["user"]:
+            print("There are no users in the system in order to assign the item.")
+            break
+        try:
+            item_id = int(input("Enter the Item ID to assign: "))
+        except ValueError:
+            print("❌ Error: Provided value must be numeric.")
+            break
+        if item_id not in db["item"]:
+            print(f"❌ Error: Item with ID `{item_id}` was not found in the system.")
+            break
+        if db["item"][item_id]["status"] != "In Stock":
+            print(f"The Item ID `{item_id}` is already assigned to the User.")
+            break
+
+        user_id = input("Enther the User ID to assign the item: ")
+        if user_id not in db["user"]:
+            print(f"❌ Error: User with ID `{user_id}` was not found in the system.")
+            break
+
+        db["assignments"][item_id] = user_id
+        db["item"][item_id]["status"] = "Assigned"
+        print(f"✅ Success: The Item ID `{item_id}` has been assigned to the User `{db["user"][user_id]}`, User ID: `{user_id}`.")
+        choise = input("Do you want assign another item? (y/n): ")
+        if choise.lower() == "n":
+            break
+                
+
 
 def main_menu_add_new_user():   # Add New User
     print("Menu Option 5 has been choosen.\n")
@@ -156,7 +187,14 @@ def main_menu_show_all_items_by_the_user():   # Show All Items by the User
     while True:
         user_id = input("Enter the User ID: ")
         if user_id in db["user"]:
-            print("The ID exists.")
+            print(f"\nItems List for the User `{db["user"][user_id]}`, User ID `{user_id}`:")
+            assignments = db["assignments"].get(user_id,[])
+            if not assignments:
+                print("There are no assignments for this User.")
+                break
+            else:
+                for assignment in assignments:
+                    print("")
         else:
             print(f"❌ Error: The Item with the ID `{user_id}` is not found in the system.")
             break
