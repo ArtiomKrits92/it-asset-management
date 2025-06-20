@@ -133,6 +133,8 @@ def main_menu_modify_item():   # Modify Item
 
 def main_menu_assign_item():   # Assign User
     print("Menu Option 4 has been choosen.\n")
+    print(db)
+    print(category_db)
 
 def main_menu_add_new_user():   # Add New User
     print("Menu Option 5 has been choosen.\n")
@@ -151,6 +153,13 @@ def main_menu_show_all_users():   # Show All Users
 
 def main_menu_show_all_items_by_the_user():   # Show All Items by the User
     print("Menu Option 7 has been choosen.\n")
+    while True:
+        user_id = input("Enter the User ID: ")
+        if user_id in db["user"]:
+            print("The ID exists.")
+        else:
+            print(f"❌ Error: The Item with the ID `{user_id}` is not found in the system.")
+            break
 
 def main_menu_sort_items_by_name():   # Sort Items by Name (A-Z)
     print("Menu Option 8 has been choosen.\n")
