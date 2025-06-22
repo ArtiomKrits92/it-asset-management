@@ -1,7 +1,7 @@
 ### This is a Main file which will contain Welcome Screen and Main Menu features. 
 import functions # Importing functions module from functions.py file
-from demo import dummie_data    # Importing dummie data from demo.py file
-dummie_data()   # Loading dummie data on running
+import demo
+
 
 functions.welcome_screen() # Welcome Screen (will be displayed once and not included to the menu loop)
 # functions.login_screen()    # Adding Login Screen feature using admin username and password credentials (Temporarily Disabled)
