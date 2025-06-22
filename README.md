@@ -62,16 +62,16 @@ If you have any feedback, feel free to contact us via email:
 ## Bonus: Tech Notes for Authors
 Main Menu Structure:
 Entry Data Keys:
-1. Add New Item
-2. Delete Item
-3. Modify Item
-4. Assign Item
-5. Add New User
-6. Show All Users
-7. Show All Items by the User
-8. Sort Items by Name (A-Z)
-9. Sort Items by Price (₪ - ₪₪₪)
-0. Calculate Stock by Categories
+1. Add New Item (TBD)
+2. Delete Item (TBD)
+3. Modify Item (TBD)
+4. Assign Item (TBD)
+5. Add New User (Done)
+6. Show All Users (Done)
+7. Show All Items by the User (Done)
+8. Sort Items by Name (A-Z) (TBD)
+9. Sort Items by Price (₪ - ₪₪₪) (TBD)
+0. Calculate Stock by Categories (TBD)
 
 Entry Data Keys and Explainations:
 1. Add New Item - Keys: Item Name, Main Category, Secondary Category, Manufacturer, Model, Price Per Unit, Quantity (maybe using ID as a key)
