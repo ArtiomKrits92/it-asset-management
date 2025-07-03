@@ -74,7 +74,6 @@ def main_menu_add_new_items():
     items_db[item["id"]] = item
     print(f"✅ Success: The Item `{sub_category} {manufacturer} {model}` with the ID `{item_id}` was successfully added to the database.")
 
-
 def main_menu_delete_item():
     item_id = input("Enther Item ID to delete: ")
     if item_id in items_db:
