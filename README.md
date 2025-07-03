@@ -30,9 +30,8 @@ TBA
 - :five: Add New User<br>
 - :six: Show All Users<br>
 - :seven: Show All Items by the User<br>
-- :eight: Sort Items by Name (A-Z)<br>
-- :nine: Sort Items by Price (₪ - ₪₪₪)<br>
-- :zero: Calculate Stock by Categories<br>
+- :eight: Show All Stock Items<br>
+- :nine: Calculate Stock by Categories<br>
 
 ### 2.3 Project Files
 - :file_folder: *python* directory contains pure Python code:
