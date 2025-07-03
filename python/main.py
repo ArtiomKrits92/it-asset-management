@@ -33,12 +33,9 @@ while True: # Start of Loop Menu
             functions.main_menu_show_all_items_by_the_user()
 
         case "8":
-            functions.main_menu_sort_items_by_name()
+            functions.main_menu_show_all_stock_items()
 
         case "9":
-            functions.main_menu_sort_items_by_price()
-
-        case "0":
             functions.main_menu_calculate_stock_by_categories()
         
         case "q":   # Exit

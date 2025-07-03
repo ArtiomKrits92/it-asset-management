@@ -29,9 +29,8 @@ def main_menu_handler(): # Menu Handler function
     print("5. Add New User")
     print("6. Show All Users")
     print("7. Show All Items by the User")
-    print("8. Sort Items by Name (A-Z)")
-    print("9. Sort Items by Price (₪ - ₪₪₪)")
-    print("0. Calculate Stock by Categories\n")
+    print("8. Show All Stock Items")
+    print("9. Calculate Stock by Categories\n")
 
 def main_menu_add_new_items():
     pass
@@ -94,11 +93,31 @@ def main_menu_show_all_items_by_the_user():
     else:
         print(f"❌ Error: There are no user with the ID `{prompt_user_id}` existing in the database.")
 
-def main_menu_sort_items_by_name():
-    pass
+def main_menu_show_all_stock_items():
+    if not items_db:
+        print("❌ Error: There are no items existing in the database.")
 
-def main_menu_sort_items_by_price():
-    pass
+    print("\nAll Stock Items List:")
+    print("-" * 50)
+
+    for item in items_db.values():
+        print(f"Item ID         : {item["id"]}")
+        print(f"Item            : {item["sub_category"]}")
+        print(f"Category        : {item["main_category"]}")
+        print(f"Manufacturer    : {item["manufacturer"]}")
+        print(f"Model           : {item["model"]}")
+        print(f"Price per Unit  : {item["price"]} ₪")
+        print(f"Quantity        : {item["quantity"]}")
+        print(f"Status          : {item["status"]}")
+        print("-" * 50)   
 
 def main_menu_calculate_stock_by_categories():
-    pass
+    print("")
+    print("-" * 50)
+    stock = {"Assets": 0, "Accessories": 0, "Licenses": 0}
+    for item in items_db.values():
+        main_category = item["main_category"]
+        stock[main_category] += item["price"] * item["quantity"]
+    for category, sum in stock.items():
+        print(f"Category: {category}, Total Value: {sum}₪")
+        print("-" * 50)
