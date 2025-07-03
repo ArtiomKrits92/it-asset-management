@@ -62,7 +62,7 @@ If you have any feedback, feel free to contact us via email:
 ### Main Menu Structure (Entry Data Keys per Status):
 1. Add New Item (TBD)
 2. Delete Item (Done)
-3. Modify Item (TBD)
+3. Modify Item (Done)
 4. Assign Item (Done)
 5. Add New User (Done)
 6. Show All Users (Done)

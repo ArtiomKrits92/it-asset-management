@@ -51,7 +51,46 @@ def main_menu_delete_item():
         print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.")
               
 def main_menu_modify_item():
-    pass
+    item_id = input("Enter Item ID to modify: ")
+    if item_id in items_db:
+        item = items_db[item_id]
+        print("")
+        print("-" * 50)
+        print(f"Item            : {item["sub_category"]}")
+        print("-" * 50)
+        print(f"Manufacturer    : {item["manufacturer"]}")
+        print("-" * 50)
+        print(f"Model           : {item["model"]}")
+        print("-" * 50)
+        print(f"Price per Unit  : {item["price"]} ₪")
+        print("-" * 50)
+        change_type = input("\nWhich data do you want to modify?\nManufacturer (mfg), Model (m), Price per Unit (p) \nEnther your choise: ")
+        if change_type.lower() == "mfg":
+            current_manufacturer = item["manufacturer"]
+            changed_manufacturer = input(f"Current Manufacturer is `{item["manufacturer"]}`. Enther new Manufacturer: ")
+            item["manufacturer"] = changed_manufacturer
+            print(f"✅ Success: Manufacturer for the Item `{item["sub_category"]}` with the ID `{item["id"]}` has been changed from `{current_manufacturer}` to `{changed_manufacturer}`.")
+
+        elif change_type.lower() == "m":
+            current_model = item["model"]
+            changed_model = input(f"Current Model is `{item["model"]}`. Enther new Model: ")
+            item["model"] = changed_model
+            print(f"✅ Success: Model for the Item `{item["sub_category"]}` with the ID `{item["id"]}` has been changed from `{current_model}` to `{changed_model}`.")
+
+        elif change_type.lower() == "p":
+            current_price = item["price"]
+            changed_price = input(f"Current Price is `{item["price"]} ₪`. Enther new Price: ")
+            try:
+                item["price"] = int(changed_price)
+                print(f"✅ Success: Price for the Item `{item["sub_category"]}` with the ID `{item["id"]}` has been changed from `{current_price}` to `{changed_price}`.")
+            except ValueError:
+                print("❌ Error: Entered value must be numeric.")
+        
+        else:
+           print(f"❌ Error: Incorrent option has been choosen.") 
+
+    else:
+        print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.")
 
 def main_menu_assign_item():
     item_id = input("Enter Item ID to assign: ")
