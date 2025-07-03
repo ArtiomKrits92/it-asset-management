@@ -34,29 +34,45 @@ def main_menu_handler(): # Menu Handler function
 
 def main_menu_add_new_items():
     global item_id_counter
-    main_category = input("Choose Main Category (Assets/Accessories/Licenses): ")
+    item_id = str(item_id_counter)
+    main_category = input("Choose Category (Assets/Accessories/Licenses): ")
     if main_category == "Assets":
-        pass
-    
+        sub_category = input("Choose Item (PC/Laptop): ")
+        if sub_category.lower() not in ["pc", "laptop"]:
+            print("❌ Error: Error: Invalid option has been choosen.")
+
     elif main_category == "Accessories":
-        pass
+        sub_category = input("Choose Item (Mouse/Keyboard/Docking Station/Monitor/Headset): ")
+        if sub_category.lower() not in ["mouse", "keyboard", "docking station", "monitor", "headset"]:
+            print("❌ Error: Error: Invalid option has been choosen.")
 
     elif main_category == "Licenses":
-        pass
+        sub_category = input("Choose Item (Serial Number/Subscription): ")
+        if sub_category.lower() not in ["serial number", "subscription"]:
+            print("❌ Error: Error: Invalid option has been choosen.")
 
     else:
-        print("❌ Error: Incorrent option has been choosen.")
+        print("❌ Error: Invalid option has been choosen.")
+
+    manufacturer = input("Enter the Manufacturer: ")
+    model = input("Enter the Model: ")
+    price = int(input("Enter the Price per Unit: "))
+
     item = {
-        "id": str(item_id_counter),  # Convert to string in order to store all the item ID's in the same format
+        "id": item_id,  # Convert to string in order to store all the item ID's in the same format
         "main_category": main_category,
-        "sub_category": None,
-        "manufacturer":None,
-        "model": None,
-        "price": None,
+        "sub_category": sub_category,
+        "manufacturer":manufacturer,
+        "model": model,
+        "price": price,
         "quantity": 1,
         "status": "In Stock",
         "assigned_to": None
     }
+
+    item_id_counter += 1
+    items_db[item["id"]] = item
+    print(f"✅ Success: The Item `{sub_category} {manufacturer} {model}` with the ID `{item_id}` was successfully added to the database.")
 
 
 def main_menu_delete_item():
@@ -111,7 +127,7 @@ def main_menu_modify_item():
                 print("❌ Error: Entered value must be numeric.")
         
         else:
-           print("❌ Error: Incorrent option has been choosen.") 
+           print("❌ Error: Invalid option has been choosen.") 
 
     else:
         print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.")
@@ -137,7 +153,7 @@ def main_menu_add_new_user():
         global user_id_counter
         user_id = str(user_id_counter)  # Convert to string in order to store all the user ID's in the same format
         users_db[user_id] = {"name": user, "items": []}
-        print(f"✅ Success: The User `{user}` was successfully added to the system with the ID `{user_id}`.")
+        print(f"✅ Success: The User `{user}` with the ID `{user_id}` was successfully added to the database.")
         user_id_counter += 1
         add_additional_one = input("Do you want to add additional user? (y/n): ")
         if add_additional_one == "y":

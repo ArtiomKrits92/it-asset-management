@@ -60,7 +60,7 @@ If you have any feedback, feel free to contact us via email:
 
 ## Bonus: Tech Notes and Tracking Status for Authors
 ### Main Menu Structure (Entry Data Keys per Status):
-1. Add New Item (TBD)
+1. Add New Item (Done)
 2. Delete Item (Done)
 3. Modify Item (Done)
 4. Assign Item (Done)
@@ -74,7 +74,7 @@ If you have any feedback, feel free to contact us via email:
 1. Testing All Functions (TBD)
 2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (TBD)
 3. Code Comments Adding (In Progress)
-4. Code Checking for All Errors Scenarios (In Progress)
+4. Code Checking for All Errors Scenarios (TBD)
 
 ### General Project Implementation Steps Status:
 1. Python Core Code Writing and Testing (In Progress) - Desmond
