@@ -33,7 +33,31 @@ def main_menu_handler(): # Menu Handler function
     print("9. Calculate Stock by Categories\n")
 
 def main_menu_add_new_items():
-    pass
+    global item_id_counter
+    main_category = input("Choose Main Category (Assets/Accessories/Licenses): ")
+    if main_category == "Assets":
+        pass
+    
+    elif main_category == "Accessories":
+        pass
+
+    elif main_category == "Licenses":
+        pass
+
+    else:
+        print("❌ Error: Incorrent option has been choosen.")
+    item = {
+        "id": str(item_id_counter),  # Convert to string in order to store all the item ID's in the same format
+        "main_category": main_category,
+        "sub_category": None,
+        "manufacturer":None,
+        "model": None,
+        "price": None,
+        "quantity": 1,
+        "status": "In Stock",
+        "assigned_to": None
+    }
+
 
 def main_menu_delete_item():
     item_id = input("Enther Item ID to delete: ")
@@ -87,7 +111,7 @@ def main_menu_modify_item():
                 print("❌ Error: Entered value must be numeric.")
         
         else:
-           print(f"❌ Error: Incorrent option has been choosen.") 
+           print("❌ Error: Incorrent option has been choosen.") 
 
     else:
         print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.")
