@@ -59,8 +59,7 @@ If you have any feedback, feel free to contact us via email:
 - [Artiom Krits](mailto:artiomkrits92@gmail.com)
 
 ## Bonus: Tech Notes and Tracking Status for Authors
-Main Menu Structure
-Entry Data Keys:
+- Main Menu Structure (Entry Data Keys per Status):
 1. Add New Item (TBD)
 2. Delete Item (TBD)
 3. Modify Item (TBD)
@@ -70,3 +69,15 @@ Entry Data Keys:
 7. Show All Items by the User (Done)
 8. Show All Stock Items (Done)
 9. Calculate Stock by Categories (Done)
+
+- Code Fine-Tuning:
+1. Testing All Functions (TBD)
+2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (TBD)
+
+- General Project Implementation Steps Status:
+1. Python Core Code Writing and Testing (In Progress) - Desmond
+2. Python Core Code Migration to Webserver Support using Flask (TBD) - Desmond
+3. Adding Docker Containers Support (TBD) - Artiom
+4. Project Migration to AWS Including Redundancy Support (TBD) - Artiom
+5. Readme File Fine-Tuning and Proper Documentation Adding (TBD) - Desmond
+
