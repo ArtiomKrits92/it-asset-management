@@ -61,7 +61,7 @@ If you have any feedback, feel free to contact us via email:
 ## Bonus: Tech Notes and Tracking Status for Authors
 ### Main Menu Structure (Entry Data Keys per Status):
 1. Add New Item (TBD)
-2. Delete Item (TBD)
+2. Delete Item (Done)
 3. Modify Item (TBD)
 4. Assign Item (Done)
 5. Add New User (Done)
