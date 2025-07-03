@@ -36,7 +36,10 @@ def main_menu_add_new_items():
     pass
 
 def main_menu_delete_item():
-    pass
+    item_id = input("Enther Item ID to delete: ")
+    if item_id in items_db:
+        del items_db[item_id]
+        print(f"✅ Success: The item {items_db[item_id]["sub_category"]} with the ID ({item_id}) has been revomed from the database.")
 
 def main_menu_modify_item():
     pass
@@ -46,15 +49,15 @@ def main_menu_assign_item():
     user_id = input("Enter User ID to assign to: ")
 
     if not item_id in items_db and not user_id in users_db:
-        print(f"❌ Error: There are no item with the ID ({item_id}) or/and user with the ID ({user_id}) existing in the database.")
+        print(f"❌ Error: There are no item with the ID `{item_id}` or/and user with the ID `{user_id}` existing in the database.")
     else:
         if items_db[item_id]["status"] == "Assigned":
-            print(f"❌ Error: The item {items_db[item_id]["sub_category"]} with the ID ({item_id}) is already assigned to another user.") 
+            print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.") 
         else:
             items_db[item_id]["status"] = "Assigned"
             # items_db[item_id]["assigned_to"] = user_id
             users_db[user_id]["items"].append(item_id)
-            print(f"✅ Success: The item {items_db[item_id]["sub_category"]} with the ID ({item_id}) was successfully assigned to the user {users_db[user_id]["name"]}.")
+            print(f"✅ Success: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` was successfully assigned to the user {users_db[user_id]["name"]}.")
 
 def main_menu_add_new_user():
     while True:
