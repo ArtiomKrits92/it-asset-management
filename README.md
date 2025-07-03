@@ -64,7 +64,7 @@ Entry Data Keys:
 1. Add New Item (TBD)
 2. Delete Item (TBD)
 3. Modify Item (TBD)
-4. Assign Item (TBD)
+4. Assign Item (Done)
 5. Add New User (Done)
 6. Show All Users (Done)
 7. Show All Items by the User (Done)

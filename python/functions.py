@@ -42,7 +42,19 @@ def main_menu_modify_item():
     pass
 
 def main_menu_assign_item():
-    pass
+    item_id = input("Enter Item ID to assign: ")
+    user_id = input("Enter User ID to assign to: ")
+
+    if not item_id in items_db and not user_id in users_db:
+        print(f"❌ Error: There are no item with the ID ({item_id}) or/and user with the ID ({user_id}) existing in the database.")
+    else:
+        if items_db[item_id]["status"] == "Assigned":
+            print(f"❌ Error: The item {items_db[item_id]["sub_category"]} with the ID ({item_id}) is already assigned to another user.") 
+        else:
+            items_db[item_id]["status"] = "Assigned"
+            # items_db[item_id]["assigned_to"] = user_id
+            users_db[user_id]["items"].append(item_id)
+            print(f"✅ Success: The item {items_db[item_id]["sub_category"]} with the ID ({item_id}) was successfully assigned to the user {users_db[user_id]["name"]}.")
 
 def main_menu_add_new_user():
     while True:
