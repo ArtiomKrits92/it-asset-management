@@ -178,6 +178,9 @@ def main_menu_assign_item():    # Assign Item Main Menu Function
 def main_menu_add_new_user():   # Add New User Main Menu Function
     while True: # Starting Loop
         user = input("Enter the Full Name: ")  # Prompt the user for input data
+        if not user.replace(" ", "").isalpha():  # Checking if the user entered numeric value into the input line above
+            print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+            break   # Breaking the Loop 
         global user_id_counter  # Calling ID Counter
         user_id = str(user_id_counter)  # Convert to string in order to store all the user ID's in the same format
         users_db[user_id] = {"name": str(user), "items": []} # Adding the User to the Users Database without any assigned items
