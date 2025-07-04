@@ -12,31 +12,31 @@ while True: # Start of Loop Menu
 
     match user_choise:  # Start of Menu Options, based on match cases
         case "1":
-            functions.main_menu_add_new_items()
+            functions.main_menu_add_new_items() # Calling Main Menu "Add New Item" Function
 
         case "2":
-            functions.main_menu_delete_item()
+            functions.main_menu_delete_item()   # Calling Main Menu "Delete Item" Function
 
         case "3":
-            functions.main_menu_modify_item()
+            functions.main_menu_modify_item()   # Calling Main Menu "Modify Item" Function
 
         case "4":
-            functions.main_menu_assign_item()
+            functions.main_menu_assign_item()   # Calling Main Menu "Assign Item" Function
 
         case "5":
-            functions.main_menu_add_new_user()
+            functions.main_menu_add_new_user()  # Calling Main Menu "Add New User" Function
 
         case "6":
-            functions.main_menu_show_all_users()
+            functions.main_menu_show_all_users()    # Calling Main Menu "Show All Users" Function
 
         case "7":
-            functions.main_menu_show_all_items_by_the_user()
+            functions.main_menu_show_all_items_by_the_user()    # Calling Main Menu "Show All Items by the User" Function
 
         case "8":
-            functions.main_menu_show_all_stock_items()
+            functions.main_menu_show_all_stock_items()  # Calling Main Menu "Show All Stock Items" Function
 
         case "9":
-            functions.main_menu_calculate_stock_by_categories()
+            functions.main_menu_calculate_stock_by_categories() # Calculate Stock by Categories" Function
         
         case "q":   # Exit
             print("Thank you for using our service. See you later!\n")   # Print goodbye message to the user before quit the loop
