@@ -87,7 +87,10 @@ def main_menu_add_new_item():  # Add New Item Main Menu Function
 
     manufacturer = input("Enter the Manufacturer: ")    # Prompt the user for input data
     model = input("Enter the Model: ")  # Prompt the user for input data
-    price = int(input("Enter the Price per Unit: "))    # Prompt the user for input data and convert the value to integer
+    price = input("Enter the Price per Unit: ")    # Prompt the user for input data and convert the value to integer
+    if not price.isdigit(): # Checking if the user entered numeric value into the input line above
+        print("❌ Error: Entered value for the price must be numeric.")   # Printing Error Message
+        return  # Exit the function in this phase (return to main menu)
 
     item = {    # Creating New Item record based on the prompt values
         "id": item_id,
@@ -95,7 +98,7 @@ def main_menu_add_new_item():  # Add New Item Main Menu Function
         "sub_category": sub_category,
         "manufacturer":manufacturer,
         "model": model,
-        "price": price,
+        "price": int(price),    # Convert the value to integer
         "quantity": 1,  # Quantity is "1" by default
         "status": "In Stock",   # Default value equals "In Stock"
         "assigned_to": None # There are no item assignment by default
