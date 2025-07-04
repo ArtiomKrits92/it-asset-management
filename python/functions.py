@@ -110,6 +110,10 @@ def main_menu_add_new_item():  # Add New Item Main Menu Function
 
 def main_menu_delete_item():    # Delete Item Main Menu Function
     item_id = input("Enther Item ID to delete: ")   # Prompt the user for input data
+    if not item_id.isdigit(): # Checking if the user entered numeric value into the input line above
+        print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+        return  # Exit the function in this phase (return to main menu)
+    
     if item_id in items_db: # In case the provided by the User ID exists in the Items Database
         item_sub_category_ram = items_db[item_id]["sub_category"]   # Create temp RAM record for the Success Removal Message Item Sub Category Displaying
         item = items_db[item_id]
@@ -125,6 +129,10 @@ def main_menu_delete_item():    # Delete Item Main Menu Function
               
 def main_menu_modify_item():    # Modify Item Main Menu Function
     item_id = input("Enter Item ID to modify: ")    # Prompt the user for input data
+    if not item_id.isdigit(): # Checking if the user entered numeric value into the input line above
+        print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+        return  # Exit the function in this phase (return to main menu)
+    
     if item_id in items_db: # In case the provided Item ID by the User exist in the Item Database
         item = items_db[item_id]
         # Start Displaying Current Item's Status (Manufacturer/Model/Price)
@@ -139,7 +147,7 @@ def main_menu_modify_item():    # Modify Item Main Menu Function
         print(f"Price per Unit  : {item["price"]} ₪")
         print("-" * 50)
         # End Displaying Current Item's Status (Manufacturer/Model/Price)
-        change_type = input("\nWhich data do you want to modify?\nManufacturer (mfg), Model (m), Price per Unit (p) \nEnther your choise: ")    # Ask the user for the data type to modify
+        change_type = input("\nWhich data do you want to modify?\nManufacturer (mfg), Model (m), Price per Unit (p)\nFor Exit (q)\nEnther your choise: ")    # Ask the user for the data type to modify
         if change_type.lower() == "mfg":    # In case the User's choise is "mfg"
             current_manufacturer = item["manufacturer"] # Create temp RAM data for the current (old) manufacturer in order to print in Success Message afterward
             changed_manufacturer = input(f"Current Manufacturer is `{item["manufacturer"]}`. Enther new Manufacturer: ")    # Prompt the user to enter the new Manufacturer data
@@ -160,6 +168,9 @@ def main_menu_modify_item():    # Modify Item Main Menu Function
                 print(f"✅ Success: Price for the Item `{item["sub_category"]}` with the ID `{item["id"]}` has been changed from `{current_price}` to `{changed_price}`.")  # Printing Success Message to the User
             except ValueError:  # In case the entered by the user value is not numeric
                 print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+        
+        elif change_type.lower() == "q":    # In case the User's choise is "q"
+            return  # Exit the function in this phase (return to main menu)
         
         else:
            print("❌ Error: Invalid option has been choosen.")  # Printing Error Message in case the user's choise for data modifying wasn't (mfg/m/p)
