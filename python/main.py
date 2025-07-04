@@ -1,6 +1,6 @@
 ### This is a Main file which will contain Welcome Screen and Main Menu features. 
 import functions # Importing functions module from functions.py file
-import demo
+import demo # Importing Dummie Data (preloaded Users and Items with different status)
 
 
 functions.welcome_screen() # Welcome Screen (will be displayed once and not included to the menu loop)
