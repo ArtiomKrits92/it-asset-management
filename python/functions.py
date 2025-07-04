@@ -8,8 +8,34 @@ user_id_counter = 7 # Creation of User ID Counter value (will start from 7 becau
 item_id_counter = 7 # Creation of Item ID Counter value (will start from 7 because of dummy data)
 
 def welcome_screen():   # Welcome Screen function
-    print("\nWelcome to IT Asset Management System!")
-    print("Credits to Desmond Coacher and Artiom Krits.")
+    welcome_screen_total_users = len(users_db)  # Calculating Starting Total Users Existing in the Users Database (Including Dummie Data preloaded)
+    welcome_screen_total_items = len(items_db)  # Calculating Starting Total Items Existing in the Items Database (Including Dummie Data preloaded)
+    welcome_screen_items_in_stock = 0   # Set Items with status "In Stock" with zero value before calculation
+    welcome_screen_items_assigned = 0   # Set Items with status "Assigned" with zero value before calculation
+    welcome_screen_items_categories = {"Assets": 0, "Accessories": 0, "Licenses": 0}    # Set Items Categories Types with zero value before calculation
+    # Start Items Status and Category Calculation
+    for item in items_db.values():  # Loop for identify item status, category and calculate them
+        status = item.get("status", "")
+        category = item.get("main_category", "")
+
+        if status == "In Stock":    # In case Item Status equal "In Stock"
+            welcome_screen_items_in_stock += 1  # Update "In Stock" counter by counting +1
+        elif status == "Assigned":  # In case Item Status equal "Assigned"
+            welcome_screen_items_assigned += 1  # Update "Assigned" counter by counting +1
+        if category in welcome_screen_items_categories: # In case Item Category equal Assets/Accessories/Licenses
+            welcome_screen_items_categories[category] += 1  # Update the relevant category counter by counting +1
+    # End Items Status and Category Calculation
+
+    # Start Printing Data
+    print("\n👋 Welcome to IT Asset Management System!")
+    print("🙏 Credits to Desmond Coacher and Artiom Krits.")
+    print(f"ℹ️  Total Users Existing in the Database: {welcome_screen_total_users}")
+    print(f"ℹ️  Total Items Existing in the Database: {welcome_screen_total_items}")
+    print(f"ℹ️  In Stock Items: {welcome_screen_items_in_stock}, Assigned Items: {welcome_screen_items_assigned}")
+    for value, count in welcome_screen_items_categories.items():    # Loop for printing the items quantity by categories
+        print(f"ℹ️  {value} Items: {count}")
+
+    # End Printing Data
 
 def login_screen(): # Login Screen function
     while True: # Loop for user input prompt for username and password credentials
@@ -22,7 +48,8 @@ def login_screen(): # Login Screen function
             print("❌ Error: Incorrect username/password data has been entered. Please try again.\n")   # Incorrect data provided case, return to the loop start
 
 def main_menu_handler(): # Menu Handler function
-    print("\n1. Add New Item")
+    print("\nMain Menu:")
+    print("1. Add New Item")
     print("2. Delete Item")
     print("3. Modify Item")
     print("4. Assign Item")
