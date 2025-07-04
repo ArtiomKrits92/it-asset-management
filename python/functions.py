@@ -28,7 +28,7 @@ def welcome_screen():   # Welcome Screen function
 
     # Start Printing Data
     print("\n👋 Welcome to IT Asset Management System!")
-    print("🙏 Credits to Desmond Coacher and Artiom Krits.")
+    print("🙏 Credits to Desmond Coacher and Artiom Krits.\n")
     print(f"ℹ️  Total Users Existing in the Database: {welcome_screen_total_users}")
     print(f"ℹ️  Total Items Existing in the Database: {welcome_screen_total_items}")
     print(f"ℹ️  In Stock Items: {welcome_screen_items_in_stock}, Assigned Items: {welcome_screen_items_assigned}")

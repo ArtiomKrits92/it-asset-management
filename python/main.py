@@ -8,9 +8,9 @@ functions.welcome_screen() # Welcome Screen (will be displayed once and not incl
 
 while True: # Start of Loop Menu
     functions.main_menu_handler()   # Calling Main Menu from Functions file
-    user_choise = input("✨ Please choose menu option (q for exit)✨: ")   # Prompt the user for main menu option choosing
+    main_menu_user_choise = input("✨ Please choose menu option (q for exit)✨: ")   # Prompt the user for main menu option choosing
 
-    match user_choise:  # Start of Menu Options, based on match cases
+    match main_menu_user_choise:  # Start of Menu Options, based on match cases
         case "1":
             functions.main_menu_add_new_item() # Calling Main Menu "Add New Item" Function
 
@@ -39,7 +39,7 @@ while True: # Start of Loop Menu
             functions.main_menu_calculate_stock_by_categories() # Calculate Stock by Categories" Function
         
         case "q":   # Exit
-            print("Thank you for using our service. See you later!\n")   # Print goodbye message to the user before quit the loop
+            print("👋 Thank you for using our service. See you later!\n")   # Print goodbye message to the user before quit the loop
             break   # Breaking the loop
 
         case _:
