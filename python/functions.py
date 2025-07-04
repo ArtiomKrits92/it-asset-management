@@ -198,10 +198,14 @@ def main_menu_show_all_users(): # Show All Users Main Menu Function
     else:   # In case there are users in the Users Database (Proceed)
         print("Users List:\n")  # Printing Header
         for id, name, in users_db.items():  # For each record in the Users Database Loop
-            print(f"ID: {id}, Full Name: {name["name"]}")   # Print the record
+            print(f"ℹ️  ID: {id}, Full Name: {name["name"]}")   # Print the record
 
 def main_menu_show_all_items_by_the_user(): # Show All Items by the User Main Menu Function
     prompt_user_id = input("Enter the User ID: ")   # Prompt the user for input data
+    if not prompt_user_id.isdigit():    # Checking if the user entered numeric value into the input line above
+        print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+        return  # Exit the function in this phase (return to main menu)
+
     if prompt_user_id in users_db:  # In case the entered by the User User's ID exists in Users Database (Proceed)
         user_id = users_db[prompt_user_id]  # Creating User's ID record basing on the data provided by the user and exists in the Users Database
         items = user_id["items"]    # Creating User's Items Assigned by the User ID
@@ -210,7 +214,7 @@ def main_menu_show_all_items_by_the_user(): # Show All Items by the User Main Me
             print(f"ℹ️  Info: The User `{user_id["name"]}` has no assigned items.")  # Printing Info Message to the user
         else:   # In case there are items assigned to the user (Proceed)
             # Start Displaying User's Data
-            print(f"\nID: {prompt_user_id}, Full Name: {user_id["name"]}")
+            print(f"\nℹ️  ID: {prompt_user_id}, Full Name: {user_id["name"]}\n")
             print("Items List:")
             print("-" * 50)
             # End Displaying User's Data
