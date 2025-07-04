@@ -173,13 +173,13 @@ def main_menu_assign_item():    # Assign Item Main Menu Function
             items_db[item_id]["status"] = "Assigned"    # Change the Item's status from "In Stock" to "Assigned"
             items_db[item_id]["assigned_to"] = user_id  # Update the User's ID for "Assigned to" value
             users_db[user_id]["items"].append(item_id)  # Add the Item ID to the User's record in Users Database based on ID
-            print(f"✅ Success: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` was successfully assigned to the user {users_db[user_id]["name"]}.")    # Printing Success Message to the User
+            print(f"✅ Success: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` was successfully assigned to the user `{users_db[user_id]["name"]}`.")    # Printing Success Message to the User
 
 def main_menu_add_new_user():   # Add New User Main Menu Function
     while True: # Starting Loop
         user = input("Enter the Full Name: ")  # Prompt the user for input data
         if not user.replace(" ", "").isalpha():  # Checking if the user entered numeric value into the input line above
-            print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+            print("❌ Error: Entered cannot be numeric.")   # Printing Error Message
             break   # Breaking the Loop 
         global user_id_counter  # Calling ID Counter
         user_id = str(user_id_counter)  # Convert to string in order to store all the user ID's in the same format
@@ -196,7 +196,8 @@ def main_menu_show_all_users(): # Show All Users Main Menu Function
     if not users_db:    # In case there are no users exists in the Users Database
         print("❌ Error: There are no users existing in the database.") ## Printing Error Message 
     else:   # In case there are users in the Users Database (Proceed)
-        print("Users List:\n")  # Printing Header
+        print("\nUsers List:")  # Printing Header
+        print("-" * 50) # Printing Header
         for id, name, in users_db.items():  # For each record in the Users Database Loop
             print(f"ℹ️  ID: {id}, Full Name: {name["name"]}")   # Print the record
 
@@ -215,8 +216,8 @@ def main_menu_show_all_items_by_the_user(): # Show All Items by the User Main Me
         else:   # In case there are items assigned to the user (Proceed)
             # Start Displaying User's Data
             print(f"\nℹ️  ID: {prompt_user_id}, Full Name: {user_id["name"]}\n")
-            print("Items List:")
-            print("-" * 50)
+            print("Items List:")    # Printing Header
+            print("-" * 50) # Printing Header
             # End Displaying User's Data
             # Start Displaying Item's Data using Loop
             for item_id in items:   # For each item assigned to the user - print based on the format below
