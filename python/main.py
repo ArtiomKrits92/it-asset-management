@@ -12,7 +12,7 @@ while True: # Start of Loop Menu
 
     match user_choise:  # Start of Menu Options, based on match cases
         case "1":
-            functions.main_menu_add_new_items() # Calling Main Menu "Add New Item" Function
+            functions.main_menu_add_new_item() # Calling Main Menu "Add New Item" Function
 
         case "2":
             functions.main_menu_delete_item()   # Calling Main Menu "Delete Item" Function
