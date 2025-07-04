@@ -66,20 +66,24 @@ def main_menu_add_new_item():  # Add New Item Main Menu Function
     if main_category == "Assets":   # In case the User's choise is Assets Main Category
         sub_category = input("Choose Item (PC/Laptop): ")   # Ask the User to choose Sub Category
         if sub_category.lower() not in ["pc", "laptop"]:    # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid option has been choosen.")  # Error Message Printing
+            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+            return  # Exit the function in this phase (return to main menu)
 
     elif main_category == "Accessories":    # In case the User's choise is Accessories Main Category
         sub_category = input("Choose Item (Mouse/Keyboard/Docking Station/Monitor/Headset): ")  # Ask the User to choose Sub Category
         if sub_category.lower() not in ["mouse", "keyboard", "docking station", "monitor", "headset"]:  # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid option has been choosen.")  # Error Message Printing
+            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+            return  # Exit the function in this phase (return to main menu)
 
     elif main_category == "Licenses":   # In case the User's choise is Licenses Main Category
         sub_category = input("Choose Item (Serial Number/Subscription): ")  # Ask the User to choose Sub Category
         if sub_category.lower() not in ["serial number", "subscription"]:   # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid option has been choosen.")  # Error Message Printing
+            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+            return  # Exit the function in this phase (return to main menu)
 
     else:
-        print("❌ Error: Invalid option has been choosen.") # Error Message Printing for Invalid Main Category choose by the User
+        print("❌ Error: Invalid Category has been choosen.") # Error Message Printing for Invalid Main Category choose by the User
+        return  # Exit the function in this phase (return to main menu)
 
     manufacturer = input("Enter the Manufacturer: ")    # Prompt the user for input data
     model = input("Enter the Model: ")  # Prompt the user for input data
