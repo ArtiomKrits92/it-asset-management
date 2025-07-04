@@ -48,16 +48,16 @@ def login_screen(): # Login Screen function
             print("❌ Error: Incorrect username/password data has been entered. Please try again.\n")   # Incorrect data provided case, return to the loop start
 
 def main_menu_handler(): # Menu Handler function
-    print("\nMain Menu:")
-    print("1. Add New Item")
-    print("2. Delete Item")
-    print("3. Modify Item")
-    print("4. Assign Item")
-    print("5. Add New User")
-    print("6. Show All Users")
-    print("7. Show All Items by the User")
-    print("8. Show All Stock Items")
-    print("9. Calculate Stock by Categories\n")
+    print("\n🔸 Main Menu🔸")
+    print("1️⃣  Add New Item")
+    print("2️⃣  Delete Item")
+    print("3️⃣  Modify Item")
+    print("4️⃣  Assign Item")
+    print("5️⃣  Add New User")
+    print("6️⃣  Show All Users")
+    print("7️⃣  Show All Items by the User")
+    print("8️⃣  Show All Stock Items")
+    print("9️⃣  Calculate Stock by Categories\n")
 
 def main_menu_add_new_item():  # Add New Item Main Menu Function
     global item_id_counter  # Calling ID Counter
