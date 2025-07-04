@@ -71,10 +71,10 @@ If you have any feedback, feel free to contact us via email:
 9. Calculate Stock by Categories (Done)
 
 ### Code Fine-Tuning:
-1. Testing All Functions (TBD)
-2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (TBD)
+1. Testing All Functions (In Progress)
+2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (In Progress)
 3. Code Comments Adding (Done)
-4. Code Checking for All Errors Scenarios (TBD)
+4. Code Checking for All Errors Scenarios (In Progress)
 
 ### General Project Implementation Steps Status:
 1. Python Core Code Writing and Testing (In Progress) - Desmond

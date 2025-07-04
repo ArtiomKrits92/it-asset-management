@@ -4,8 +4,8 @@ import getpass  # Importing Getpass module for password input data masking
 items_db = {}   # Creation of items database empty list
 users_db = {}   # Creation of users database empty list
 
-user_id_counter = 7 # Creation of User ID Counter value (will start from 7)
-item_id_counter = 7 # Creation of Item ID Counter value (will start from 7)
+user_id_counter = 7 # Creation of User ID Counter value (will start from 7 because of dummy data)
+item_id_counter = 7 # Creation of Item ID Counter value (will start from 7 because of dummy data)
 
 def welcome_screen():   # Welcome Screen function
     print("\nWelcome to IT Asset Management System!")
