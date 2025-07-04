@@ -234,30 +234,32 @@ def main_menu_show_all_items_by_the_user(): # Show All Items by the User Main Me
 def main_menu_show_all_stock_items():   # Show All Stock Items Main Menu Function
     if not items_db:    # In case there are no items in the Item Database
         print("❌ Error: There are no items existing in the database.") # Displaying Error Message
-    # In case there are items in the Item Database (Proceed)
-    print("\nAll Stock Items List:")    # Print Header
-    print("-" * 50) # Print Header
+    else:   # In case there are items in the Item Database (Proceed)
+        print("\nAll Stock Items List:")    # Print Header
+        print("-" * 50) # Print Header
 
-    # Start Displaying Item's Data using Loop
-    for item in items_db.values():  # For each item existing in the Database - print based on the format below
-        print(f"Item ID         : {item["id"]}")
-        print(f"Item            : {item["sub_category"]}")
-        print(f"Category        : {item["main_category"]}")
-        print(f"Manufacturer    : {item["manufacturer"]}")
-        print(f"Model           : {item["model"]}")
-        print(f"Price per Unit  : {item["price"]} ₪")
-        print(f"Quantity        : {item["quantity"]}")
-        print(f"Status          : {item["status"]}")
-        print("-" * 50)   
-    # End Displaying Item's Data using Loop
+        # Start Displaying Item's Data using Loop
+        for item in items_db.values():  # For each item existing in the Database - print based on the format below
+            print(f"Item ID         : {item["id"]}")
+            print(f"Item            : {item["sub_category"]}")
+            print(f"Category        : {item["main_category"]}")
+            print(f"Manufacturer    : {item["manufacturer"]}")
+            print(f"Model           : {item["model"]}")
+            print(f"Price per Unit  : {item["price"]} ₪")
+            print(f"Quantity        : {item["quantity"]}")
+            print(f"Status          : {item["status"]}")
+            print("-" * 50)   
+        # End Displaying Item's Data using Loop
 
 def main_menu_calculate_stock_by_categories():  # Calculate Stock by Categories Main Menu Function
-    print("")   # Print Header
-    print("-" * 50) # Print Header
     stock = {"Assets": 0, "Accessories": 0, "Licenses": 0}  # Creating value with starting zero values for each category
-    for item in items_db.values():  # Loop for calculate stock total values based on items quantity and price per unit
-        main_category = item["main_category"]
-        stock[main_category] += item["price"] * item["quantity"]
-    for category, sum in stock.items(): # Loop for printing calculated values per category
-        print(f"Category: {category}, Total Value: {sum}₪")
-        print("-" * 50)
+    if not items_db:    # In case there are no items in the Item Database
+        print("❌ Error: There are no items existing in the database.") # Displaying Error Message
+    else:   # In case there are items in the Item Database (Proceed)
+        print("\nStock Items Calculation by Categories:")   # Print Header
+        print("-" * 50) # Print Header
+        for item in items_db.values():  # Loop for calculate stock total values based on items quantity and price per unit
+            main_category = item["main_category"]
+            stock[main_category] += item["price"] * item["quantity"]
+        for category, sum in stock.items(): # Loop for printing calculated values per category
+            print(f"ℹ️  Category: {category}, Total Value: {sum}₪")
