@@ -71,14 +71,14 @@ If you have any feedback, feel free to contact us via email:
 9. Calculate Stock by Categories (Done)
 
 ### Code Fine-Tuning:
-1. Testing All Functions (In Progress)
-2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (In Progress)
+1. Testing All Functions (Done)
+2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (Done)
 3. Code Comments Adding (Done)
-4. Code Checking for All Errors Scenarios (In Progress)
+4. Code Checking for All Errors Scenarios (Done)
 
 ### General Project Implementation Steps Status:
-1. Python Core Code Writing and Testing (In Progress) - Desmond
-2. Python Core Code Migration to Webserver Support using Flask (TBD) - Desmond
+1. Python Core Code Writing and Testing (Done) - Desmond
+2. Python Core Code Migration to Webserver Support using Flask (In Progress) - Desmond
 3. Adding Docker Containers Support (TBD) - Artiom
 4. Project Migration to AWS Including Redundancy Support (TBD) - Artiom
 5. Readme File Fine-Tuning and Proper Documentation Adding (TBD) - Desmond

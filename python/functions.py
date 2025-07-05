@@ -138,7 +138,7 @@ def main_menu_delete_item():    # Delete Item Main Menu Function
                 break   # Breaking Loop
         else:
             print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.") # Printing Error Message to the User in case the provided Item ID is not exist in the Database
-            return
+            return  # Exit the function in this phase (return to main menu)
               
 def main_menu_modify_item():    # Modify Item Main Menu Function
     item_id = input("Enter Item ID to modify: ")    # Prompt the user for input data
@@ -198,11 +198,11 @@ def main_menu_assign_item():    # Assign Item Main Menu Function
 
         if not item_id in items_db and not user_id in users_db: # In case the Item ID or/and User ID are not exists in the Databases
             print(f"❌ Error: There are no item with the ID `{item_id}` or/and user with the ID `{user_id}` existing in the database.") # Printing Error Message
-            return
+            return  # Exit the function in this phase (return to main menu)
         else:   # In case the Item ID and User ID exists in the Databases (Proceed)
             if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status is "Assigned"
                 print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.")    # Printing Error Message because the item is already assigned to another user
-                return
+                return  # Exit the function in this phase (return to main menu)
             else:   # In case the Item's Status is "In Stock" (Proceed)
                 items_db[item_id]["status"] = "Assigned"    # Change the Item's status from "In Stock" to "Assigned"
                 items_db[item_id]["assigned_to"] = user_id  # Update the User's ID for "Assigned to" value
