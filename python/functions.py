@@ -60,72 +60,85 @@ def main_menu_handler(): # Menu Handler function
     print("9️⃣  Calculate Stock by Categories\n")
 
 def main_menu_add_new_item():  # Add New Item Main Menu Function
-    global item_id_counter  # Calling ID Counter
-    item_id = str(item_id_counter)  # Convert to string in order to store all the user ID's in the same format
-    main_category = input("Choose Category (Assets/Accessories/Licenses): ")    # Ask the User to choose Main Category
-    if main_category == "Assets":   # In case the User's choise is Assets Main Category
-        sub_category = input("Choose Item (PC/Laptop): ")   # Ask the User to choose Sub Category
-        if sub_category.lower() not in ["pc", "laptop"]:    # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+    while True: # Starting Loop
+        global item_id_counter  # Calling ID Counter
+        item_id = str(item_id_counter)  # Convert to string in order to store all the user ID's in the same format
+        main_category = input("Choose Category (Assets/Accessories/Licenses): ")    # Ask the User to choose Main Category
+        if main_category == "Assets":   # In case the User's choise is Assets Main Category
+            sub_category = input("Choose Item (PC/Laptop): ")   # Ask the User to choose Sub Category
+            if sub_category.lower() not in ["pc", "laptop"]:    # In case the User's choise is not equal the sub category prompt
+                print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+                return  # Exit the function in this phase (return to main menu)
+
+        elif main_category == "Accessories":    # In case the User's choise is Accessories Main Category
+            sub_category = input("Choose Item (Mouse/Keyboard/Docking Station/Monitor/Headset): ")  # Ask the User to choose Sub Category
+            if sub_category.lower() not in ["mouse", "keyboard", "docking station", "monitor", "headset"]:  # In case the User's choise is not equal the sub category prompt
+                print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+                return  # Exit the function in this phase (return to main menu)
+
+        elif main_category == "Licenses":   # In case the User's choise is Licenses Main Category
+            sub_category = input("Choose Item (Serial Number/Subscription): ")  # Ask the User to choose Sub Category
+            if sub_category.lower() not in ["serial number", "subscription"]:   # In case the User's choise is not equal the sub category prompt
+                print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+                return  # Exit the function in this phase (return to main menu)
+
+        else:
+            print("❌ Error: Invalid Category has been choosen.") # Error Message Printing for Invalid Main Category choose by the User
             return  # Exit the function in this phase (return to main menu)
 
-    elif main_category == "Accessories":    # In case the User's choise is Accessories Main Category
-        sub_category = input("Choose Item (Mouse/Keyboard/Docking Station/Monitor/Headset): ")  # Ask the User to choose Sub Category
-        if sub_category.lower() not in ["mouse", "keyboard", "docking station", "monitor", "headset"]:  # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+        manufacturer = input("Enter the Manufacturer: ")    # Prompt the user for input data
+        model = input("Enter the Model: ")  # Prompt the user for input data
+        price = input("Enter the Price per Unit: ")    # Prompt the user for input data and convert the value to integer
+        if not price.isdigit(): # Checking if the user entered numeric value into the input line above
+            print("❌ Error: Entered value for the price must be numeric.")   # Printing Error Message
             return  # Exit the function in this phase (return to main menu)
 
-    elif main_category == "Licenses":   # In case the User's choise is Licenses Main Category
-        sub_category = input("Choose Item (Serial Number/Subscription): ")  # Ask the User to choose Sub Category
-        if sub_category.lower() not in ["serial number", "subscription"]:   # In case the User's choise is not equal the sub category prompt
-            print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
-            return  # Exit the function in this phase (return to main menu)
+        item = {    # Creating New Item record based on the prompt values
+            "id": item_id,
+            "main_category": main_category,
+            "sub_category": sub_category,
+            "manufacturer":manufacturer,
+            "model": model,
+            "price": int(price),    # Convert the value to integer
+            "quantity": 1,  # Quantity is "1" by default
+            "status": "In Stock",   # Default value equals "In Stock"
+            "assigned_to": None # There are no item assignment by default
+        }
 
-    else:
-        print("❌ Error: Invalid Category has been choosen.") # Error Message Printing for Invalid Main Category choose by the User
-        return  # Exit the function in this phase (return to main menu)
-
-    manufacturer = input("Enter the Manufacturer: ")    # Prompt the user for input data
-    model = input("Enter the Model: ")  # Prompt the user for input data
-    price = input("Enter the Price per Unit: ")    # Prompt the user for input data and convert the value to integer
-    if not price.isdigit(): # Checking if the user entered numeric value into the input line above
-        print("❌ Error: Entered value for the price must be numeric.")   # Printing Error Message
-        return  # Exit the function in this phase (return to main menu)
-
-    item = {    # Creating New Item record based on the prompt values
-        "id": item_id,
-        "main_category": main_category,
-        "sub_category": sub_category,
-        "manufacturer":manufacturer,
-        "model": model,
-        "price": int(price),    # Convert the value to integer
-        "quantity": 1,  # Quantity is "1" by default
-        "status": "In Stock",   # Default value equals "In Stock"
-        "assigned_to": None # There are no item assignment by default
-    }
-
-    item_id_counter += 1    # Updating Item ID Counter
-    items_db[item["id"]] = item # Adding the New Item record to the Items Database
-    print(f"✅ Success: The Item `{sub_category} {manufacturer} {model}` with the ID `{item_id}` was successfully added to the database.")  # Printing Success Message to the User
+        item_id_counter += 1    # Updating Item ID Counter
+        items_db[item["id"]] = item # Adding the New Item record to the Items Database
+        print(f"✅ Success: The Item `{sub_category} {manufacturer} {model}` with the ID `{item_id}` was successfully added to the database.")  # Printing Success Message to the User
+        add_additional_one = input("Do you want to add additional item? (y/n): ")   # Asking the user for additional item adding
+        if add_additional_one == "y":   # In case the user's answer is "y" (yes) - Proceed
+            True    # Going back to the Loop Start
+        else:   # In case the user's answer is "n" (no) - Break
+            break   # Breaking Loop
 
 def main_menu_delete_item():    # Delete Item Main Menu Function
-    item_id = input("Enther Item ID to delete: ")   # Prompt the user for input data
-    if not item_id.isdigit(): # Checking if the user entered numeric value into the input line above
-        print("❌ Error: Entered value must be numeric.")   # Printing Error Message
-        return  # Exit the function in this phase (return to main menu)
-    
-    if item_id in items_db: # In case the provided by the User ID exists in the Items Database
-        item_sub_category_ram = items_db[item_id]["sub_category"]   # Create temp RAM record for the Success Removal Message Item Sub Category Displaying
-        item = items_db[item_id]
-        assigned_user_id = item.get("assigned_to")  # Getting the "Assigned to" User's ID in order to remove the assignment record
-        if assigned_user_id in users_db:    # In Case the Item's Status is "Assigned" - proceed and remove the Record from the User by the User's ID
-            if item_id in users_db[assigned_user_id]["items"]:
-                users_db[assigned_user_id]["items"].remove(item_id)
+    while True: # Starting Loop
+        item_id = input("Enther Item ID to delete: ")   # Prompt the user for input data
+        if not item_id.isdigit(): # Checking if the user entered numeric value into the input line above
+            print("❌ Error: Entered value must be numeric.")   # Printing Error Message
+            return  # Exit the function in this phase (return to main menu)
         
-        del items_db[item_id]   # Delete the Item from the Items Database
-        print(f"✅ Success: The item `{item_sub_category_ram}` with the ID `{item_id}` has been revomed from the database.")    # Printing Success Message to the User
-    else:
-        print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.") # Printing Error Message to the User in case the provided Item ID is not exist in the Database
+        if item_id in items_db: # In case the provided by the User ID exists in the Items Database
+            item_sub_category_ram = items_db[item_id]["sub_category"]   # Create temp RAM record for the Success Removal Message Item Sub Category Displaying
+            item = items_db[item_id]
+            assigned_user_id = item.get("assigned_to")  # Getting the "Assigned to" User's ID in order to remove the assignment record
+            if assigned_user_id in users_db:    # In Case the Item's Status is "Assigned" - proceed and remove the Record from the User by the User's ID
+                if item_id in users_db[assigned_user_id]["items"]:
+                    users_db[assigned_user_id]["items"].remove(item_id)
+            
+            del items_db[item_id]   # Delete the Item from the Items Database
+            print(f"✅ Success: The item `{item_sub_category_ram}` with the ID `{item_id}` has been revomed from the database.")    # Printing Success Message to the User
+            add_additional_one = input("Do you want to delete additional item? (y/n): ")   # Asking the user for additional item removal
+            if add_additional_one == "y":   # In case the user's answer is "y" (yes) - Proceed
+                True    # Going back to the Loop Start
+            else:   # In case the user's answer is "n" (no) - Break
+                break   # Breaking Loop
+        else:
+            print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.") # Printing Error Message to the User in case the provided Item ID is not exist in the Database
+            return
               
 def main_menu_modify_item():    # Modify Item Main Menu Function
     item_id = input("Enter Item ID to modify: ")    # Prompt the user for input data
@@ -179,19 +192,27 @@ def main_menu_modify_item():    # Modify Item Main Menu Function
         print(f"❌ Error: There are no item with the ID `{item_id}` existing in the database.") # Printing Error Message in case the provided Item ID by the user is not exist in the Item Database
 
 def main_menu_assign_item():    # Assign Item Main Menu Function
-    item_id = input("Enter Item ID to assign: ")    # Prompt the user for input data
-    user_id = input("Enter User ID to assign to: ") # Prompt the user for input data
+    while True:
+        item_id = input("Enter Item ID to assign: ")    # Prompt the user for input data
+        user_id = input("Enter User ID to assign to: ") # Prompt the user for input data
 
-    if not item_id in items_db and not user_id in users_db: # In case the Item ID or/and User ID are not exists in the Databases
-        print(f"❌ Error: There are no item with the ID `{item_id}` or/and user with the ID `{user_id}` existing in the database.") # Printing Error Message
-    else:   # In case the Item ID and User ID exists in the Databases (Proceed)
-        if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status is "Assigned"
-            print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.")    # Printing Error Message because the item is already assigned to another user
-        else:   # In case the Item's Status is "In Stock" (Proceed)
-            items_db[item_id]["status"] = "Assigned"    # Change the Item's status from "In Stock" to "Assigned"
-            items_db[item_id]["assigned_to"] = user_id  # Update the User's ID for "Assigned to" value
-            users_db[user_id]["items"].append(item_id)  # Add the Item ID to the User's record in Users Database based on ID
-            print(f"✅ Success: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` was successfully assigned to the user `{users_db[user_id]["name"]}`.")    # Printing Success Message to the User
+        if not item_id in items_db and not user_id in users_db: # In case the Item ID or/and User ID are not exists in the Databases
+            print(f"❌ Error: There are no item with the ID `{item_id}` or/and user with the ID `{user_id}` existing in the database.") # Printing Error Message
+            return
+        else:   # In case the Item ID and User ID exists in the Databases (Proceed)
+            if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status is "Assigned"
+                print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.")    # Printing Error Message because the item is already assigned to another user
+                return
+            else:   # In case the Item's Status is "In Stock" (Proceed)
+                items_db[item_id]["status"] = "Assigned"    # Change the Item's status from "In Stock" to "Assigned"
+                items_db[item_id]["assigned_to"] = user_id  # Update the User's ID for "Assigned to" value
+                users_db[user_id]["items"].append(item_id)  # Add the Item ID to the User's record in Users Database based on ID
+                print(f"✅ Success: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` was successfully assigned to the user `{users_db[user_id]["name"]}`.")    # Printing Success Message to the User
+                add_additional_one = input("Do you want to assign additional item? (y/n): ")   # Asking the user for additional item assign
+                if add_additional_one == "y":   # In case the user's answer is "y" (yes) - Proceed
+                    True    # Going back to the Loop Start
+                else:   # In case the user's answer is "n" (no) - Break
+                    break   # Breaking Loop
 
 def main_menu_add_new_user():   # Add New User Main Menu Function
     while True: # Starting Loop
@@ -285,4 +306,4 @@ def main_menu_calculate_stock_by_categories():  # Calculate Stock by Categories 
             main_category = item["main_category"]
             stock[main_category] += item["price"] * item["quantity"]
         for category, sum in stock.items(): # Loop for printing calculated values per category
-            print(f"ℹ️  Category: {category}, Total Value: {sum}₪")
+            print(f"ℹ️  Category: {category}, Total Value: {sum} ₪")
