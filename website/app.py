@@ -2,9 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import demo # Importing Dummie Data Function
 
 app = Flask(__name__)
-# app.secret_key = "supersecretkey"  # Needed for flashing messages
-
-# application = app
+app.secret_key = "supersecretkey"  # Needed for flashing messages
 
 # Databases (in-memory dictionaries)
 items_db = {}
@@ -214,5 +212,5 @@ def stock_by_categories():
     return render_template("stock_by_categories.html", stock=stock, menu_links=get_menu_links())
 
 # ----------- RUN APP -----------
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
