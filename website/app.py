@@ -186,9 +186,19 @@ def show_user_items(user_id):
     if user_id not in users_db:
         flash("User ID not found.", "danger")
         return redirect(url_for("show_user_items_select"))
+
     user = users_db[user_id]
-    items = [items_db[item_id] for item_id in user["items"] if item_id in items_db]
-    return render_template("show_user_items.html", user=user, user_id=user_id, items=items, menu_links=get_menu_links())
+    # Safely get assigned items present in items_db
+    assigned_items = [items_db[iid] for iid in user["items"] if iid in items_db]
+
+    return render_template(
+        "show_user_items.html",
+        user=user,
+        user_id=user_id,
+        items=assigned_items,
+        menu_links=get_menu_links(),
+    )
+
 
 @app.route("/show_stock_items")
 def show_stock_items():
