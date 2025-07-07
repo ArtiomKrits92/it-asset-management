@@ -93,7 +93,7 @@ If you have any feedback, feel free to contact us via email:
 
 ### General Project Implementation Steps Status:
 1. Python Core Code Writing and Testing (Done) - Desmond
-2. Python Core Code Migration to Webserver Support using Flask (In Progress) - Desmond
+2. Python Core Code Migration to Webserver Support using Flask (Done) - Desmond
 3. Adding Docker Containers Support (TBD) - Artiom
 4. Project Migration to AWS Including Redundancy Support (TBD) - Artiom
 5. Readme File Fine-Tuning and Proper Documentation Adding (TBD) - Desmond
