@@ -2,9 +2,9 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import demo # Importing Dummie Data Function
 
 app = Flask(__name__)
-app.secret_key = "supersecretkey"  # Needed for flashing messages
+# app.secret_key = "supersecretkey"  # Needed for flashing messages
 
-application = app
+# application = app
 
 # Databases (in-memory dictionaries)
 items_db = {}
