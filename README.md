@@ -77,8 +77,7 @@ Testing Deployment:
 - apt-get install libapache2-mod-wsgi-py3 -y
 - apt install python3-flask -y
 - a2ensite it-asset-management.conf && a2dissite 000-default.conf
-- service apache2 reload
-- service apache2 restart
+- service apache2 reload && service apache2 restart
 
 ## 4. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
@@ -113,7 +112,7 @@ If you have any feedback, feel free to contact us via email:
 
 ### General Project Implementation Steps Status:
 1. Python Core Code Writing and Testing (Done) - Desmond
-2. Python Core Code Migration to Webserver Support using Flask (In Progress) - Desmond
+2. Python Core Code Migration to Webserver Support using Flask (Done) - Desmond
 3. Adding Docker Containers Support (TBD) - Artiom
 4. Project Migration to AWS Including Redundancy Support (TBD) - Artiom
 5. Readme File Fine-Tuning and Proper Documentation Adding (TBD) - Desmond
