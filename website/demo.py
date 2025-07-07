@@ -2,7 +2,7 @@
 ### Those values will be imported to the project.
 ### New data added using project functions will be added/modified as well to the existing db with the pre-created and earlier added data from this file.
 
-from data import items_db, users_db    # Import an empty items and users databases data from data.py file
+from website.data import items_db, users_db    # Import an empty items and users databases data from data.py file
 
 # Adding Users Dummie Data without any Items for now
 # Source used for random names creation: https://goodbyejohndoe.com/
