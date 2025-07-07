@@ -11,15 +11,15 @@ user_id_counter = 7
 # Helper function for menu links (used in base.html)
 def get_menu_links():
     return [
-        ("1️⃣", "Add New Item", "add_item"),
-        ("2️⃣", "Delete Item", "delete_item"),
-        ("3️⃣", "Modify Item", "modify_item_select"),
-        ("4️⃣", "Assign Item", "assign_item"),
-        ("5️⃣", "Add New User", "add_user"),
-        ("6️⃣", "Show All Users", "show_users"),
-        ("7️⃣", "Show All Items by the User", "show_user_items_select"),
-        ("8️⃣", "Show All Stock Items", "show_stock_items"),
-        ("9️⃣", "Calculate Stock by Categories", "stock_by_categories"),
+        ("Add New Item", "add_item"),
+        ("Delete Item", "delete_item"),
+        ("Modify Item", "modify_item_select"),
+        ("Assign Item", "assign_item"),
+        ("Add New User", "add_user"),
+        ("Show All Users", "show_users"),
+        ("Show Items by User", "show_user_items_select"),
+        ("Show All Items", "show_stock_items"),
+        ("Calculate Stock", "stock_by_categories"),
     ]
 
 # ----------- ROUTES -----------
