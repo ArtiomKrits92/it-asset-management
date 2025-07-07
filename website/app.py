@@ -179,7 +179,10 @@ def show_user_items_select():
             flash("User ID not found.", "danger")
             return redirect(url_for("show_user_items_select"))
         return redirect(url_for("show_user_items", user_id=user_id))
-    return render_template("show_user_items_select.html", menu_links=get_menu_links())
+    
+    # GET method: render user selection form
+    return render_template("show_user_items_select.html", users=users_db, menu_links=get_menu_links())
+
 
 @app.route("/show_user_items/<user_id>")
 def show_user_items(user_id):
