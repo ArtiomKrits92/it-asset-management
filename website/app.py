@@ -171,24 +171,21 @@ def add_user():
 def show_users():
     return render_template("show_users.html", users=users_db, menu_links=get_menu_links())
 
-@app.route("/show_user_items", methods=["GET", "POST"])
-def show_user_items_select():
-    if request.method == "POST":
-        user_id = request.form.get("user_id")
-        if not user_id or user_id not in users_db:
-            flash("User ID not found.", "danger")
-            return redirect(url_for("show_user_items_select"))
-        return redirect(url_for("show_user_items", user_id=user_id))
-    return render_template("show_user_items_select.html", menu_links=get_menu_links())
-
 @app.route("/show_user_items/<user_id>")
 def show_user_items(user_id):
     if user_id not in users_db:
         flash("User ID not found.", "danger")
         return redirect(url_for("show_user_items_select"))
+
     user = users_db[user_id]
-    items = [items_db[item_id] for item_id in user["items"] if item_id in items_db]
-    return render_template("show_user_items.html", user=user, user_id=user_id, items=items, menu_links=get_menu_links())
+    assigned_items = [items_db[iid] for iid in user["items"] if iid in items_db]
+
+    return render_template("show_user_items.html",
+                           user=user,
+                           user_id=user_id,
+                           items=assigned_items,
+                           menu_links=get_menu_links())
+
 
 @app.route("/show_stock_items")
 def show_stock_items():
