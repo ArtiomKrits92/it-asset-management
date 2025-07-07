@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from website.data import items_db, users_db # Importing Items and Users Databases
+from data import items_db, users_db # Importing Items and Users Databases
 import demo # Importing Dummie Data
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for flashing messages
