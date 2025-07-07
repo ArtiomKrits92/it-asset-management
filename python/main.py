@@ -43,7 +43,7 @@ while True: # Start of Loop Menu
             break   # Breaking the loop
 
         case _:
-            print("❌ Error: Incorrect menu option has been choosen. Please try again.") # In case the user's chosen option does not exist
+            print("❌ Error: Incorrect menu option has been chosen. Please try again.") # In case the user's chosen option does not exist
     # End of Menu Options, based on match cases
 
 #    input("Press Enter key in order to return to the Main Menu.") # Prompt the input message as a part of the loop for returning to the Main Menu (Temporarily Disabled)
