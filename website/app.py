@@ -1,16 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-import demo # Importing Dummie Data Function
-
+from data import items_db, users_db # Importing Items and Users Databases
+import demo # Importing Dummie Data
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for flashing messages
-
-# Databases (in-memory dictionaries)
-items_db = {}
-users_db = {}
-
-# Loading Dummie Data for Items and Users Databases
-items_db = demo.items_db
-users_db = demo.users_db
 
 # Setting Up Item and User Counters Based on Pre-loaded Dummie Data
 item_id_counter = 7
@@ -210,7 +202,3 @@ def stock_by_categories():
         if cat in stock:
             stock[cat] += item["price"] * item["quantity"]
     return render_template("stock_by_categories.html", stock=stock, menu_links=get_menu_links())
-
-# ----------- RUN APP -----------
-# if __name__ == "__main__":
-#     app.run(debug=True)
