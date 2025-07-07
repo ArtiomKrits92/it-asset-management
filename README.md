@@ -43,6 +43,10 @@ TBA
 - :file_folder: *aws* directory contains data relevant to AWS deployment
 
 ## 3. Deployment & Implementation
+### 3.1 Python Core Code Local Testing (Optional)
+Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
+
+### 3.2 Migrating Python Code to Webserver Running on Apache Using Flask
 TBA
 
 ## 4. License
