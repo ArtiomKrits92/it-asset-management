@@ -15,23 +15,23 @@ users_db["6"] = {"name": "Claire Voyant", "items": []}
 
 # Adding Items Dummie Data without any assignments
 items_db["1"] = {
-    "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000, "quantity": 1, "status": "In Stock", "assigned_to": None
+    "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000.0, "quantity": 1, "status": "In Stock", "assigned_to": None
 }
 items_db["2"] = {
-    "id": "2", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Lenovo", "model": "X1 Carbon", "price": 8300, "quantity": 1, "status": "In Stock", "assigned_to": None
+    "id": "2", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Lenovo", "model": "X1 Carbon", "price": 8300.0, "quantity": 1, "status": "In Stock", "assigned_to": None
 }
 items_db["3"] = {
-    "id": "3", "main_category": "Assets", "sub_category": "PC", "manufacturer": "Asus", "model": "Desktop Intel Core i9 14900KS", "price": 14900, "quantity": 1, "status": "In Stock", "assigned_to": "1"
+    "id": "3", "main_category": "Assets", "sub_category": "PC", "manufacturer": "Asus", "model": "Desktop Intel Core i9 14900KS", "price": 14900.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
 }
 
 items_db["4"] = {
-    "id": "4", "main_category": "Accessories", "sub_category": "Docking Station", "manufacturer": "Dell", "model": "WD19TB", "price": 700, "quantity": 1, "status": "In Stock", "assigned_to": "1"
+    "id": "4", "main_category": "Accessories", "sub_category": "Docking Station", "manufacturer": "Dell", "model": "WD19TB", "price": 700.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
 }
 items_db["5"] = {
-    "id": "5", "main_category": "Accessories", "sub_category": "Mouse", "manufacturer": "Logitech", "model": "MX Master 3", "price": 550, "quantity": 1, "status": "In Stock", "assigned_to": "3"
+    "id": "5", "main_category": "Accessories", "sub_category": "Mouse", "manufacturer": "Logitech", "model": "MX Master 3", "price": 550.0, "quantity": 1, "status": "In Stock", "assigned_to": "3"
 }
 items_db["6"] = {
-    "id": "6", "main_category": "Licenses", "sub_category": "Subscription", "manufacturer": "OpenAI", "model": "ChatGPT Pro", "price": 800, "quantity": 1, "status": "In Stock", "assigned_to": "5"
+    "id": "6", "main_category": "Licenses", "sub_category": "Subscription", "manufacturer": "OpenAI", "model": "ChatGPT Pro", "price": 800.0, "quantity": 1, "status": "In Stock", "assigned_to": "5"
 }
 
 # Assigning some items to the users
