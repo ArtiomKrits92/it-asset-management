@@ -58,8 +58,7 @@ Testing Deployment:
 - apt-get install libapache2-mod-wsgi-py3 -y
 - apt install python3-flask -y
 - a2ensite it-asset-management.conf && a2dissite 000-default.conf
-- service apache2 reload
-- service apache2 restart
+- service apache2 reload && service apache2 restart
 
 ## 4. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
