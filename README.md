@@ -47,7 +47,16 @@ TBA
 Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
 
 ### 3.2 Migrating Python Code to Webserver Running on Apache Using Flask
-TBA
+Testing Deployment:
+- docker run -it -p 500:80 ubuntu
+- apt update
+- apt install git -y && apt install apache2 -y
+- git clone https://github.com/dcoacher/it-asset-management.git
+- mkdir /var/www/it-asset-management
+- cp -r it-asset-management/website/templates/ it-asset-management/website/app.py it-asset-management/website/wsgi.py it-asset-management/website/demo.py /var/www/it-asset-management/
+- cp -r it-asset-management/website/it-asset-management.conf /etc/apache2/sites-available/
+- apt-get install libapache2-mod-wsgi-py3 -y
+- apt install python3-flask -y
 
 ## 4. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
