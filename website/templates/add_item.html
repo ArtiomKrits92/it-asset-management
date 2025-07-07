@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Add New Item</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="main_category" class="form-label">Category</label>
+    <select class="form-select" id="main_category" name="main_category" required>
+      <option value="">Choose category</option>
+      <option value="Assets">Assets</option>
+      <option value="Accessories">Accessories</option>
+      <option value="Licenses">Licenses</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="sub_category" class="form-label">Sub Category</label>
+    <input type="text" class="form-control" id="sub_category" name="sub_category" placeholder="e.g. Laptop, Mouse" required />
+  </div>
+  <div class="mb-3">
+    <label for="manufacturer" class="form-label">Manufacturer</label>
+    <input type="text" class="form-control" id="manufacturer" name="manufacturer" required />
+  </div>
+  <div class="mb-3">
+    <label for="model" class="form-label">Model</label>
+    <input type="text" class="form-control" id="model" name="model" required />
+  </div>
+  <div class="mb-3">
+    <label for="price" class="form-label">Price per Unit (₪)</label>
+    <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" required />
+  </div>
+  <button type="submit" class="btn btn-primary">Add Item</button>
+</form>
+{% endblock %}
