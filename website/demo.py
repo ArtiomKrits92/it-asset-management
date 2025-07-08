@@ -14,34 +14,35 @@ users_db["5"] = {"name": "Miles Tone", "items": []}
 users_db["6"] = {"name": "Claire Voyant", "items": []}
 
 # Adding Items Dummie Data without any assignments
-items_db["1"] = {
-    "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000.0, "quantity": 1, "status": "In Stock", "assigned_to": None
-}
-items_db["2"] = {
-    "id": "2", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Lenovo", "model": "X1 Carbon", "price": 8300.0, "quantity": 1, "status": "In Stock", "assigned_to": None
-}
-items_db["3"] = {
-    "id": "3", "main_category": "Assets", "sub_category": "PC", "manufacturer": "Asus", "model": "Desktop Intel Core i9 14900KS", "price": 14900.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
-}
+def load_dummie_data():
+    items_db["1"] = {
+        "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000.0, "quantity": 1, "status": "In Stock", "assigned_to": None
+    }
+    items_db["2"] = {
+        "id": "2", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Lenovo", "model": "X1 Carbon", "price": 8300.0, "quantity": 1, "status": "In Stock", "assigned_to": None
+    }
+    items_db["3"] = {
+        "id": "3", "main_category": "Assets", "sub_category": "PC", "manufacturer": "Asus", "model": "Desktop Intel Core i9 14900KS", "price": 14900.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
+    }
 
-items_db["4"] = {
-    "id": "4", "main_category": "Accessories", "sub_category": "Docking Station", "manufacturer": "Dell", "model": "WD19TB", "price": 700.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
-}
-items_db["5"] = {
-    "id": "5", "main_category": "Accessories", "sub_category": "Mouse", "manufacturer": "Logitech", "model": "MX Master 3", "price": 550.0, "quantity": 1, "status": "In Stock", "assigned_to": "3"
-}
-items_db["6"] = {
-    "id": "6", "main_category": "Licenses", "sub_category": "Subscription", "manufacturer": "OpenAI", "model": "ChatGPT Pro", "price": 800.0, "quantity": 1, "status": "In Stock", "assigned_to": "5"
-}
+    items_db["4"] = {
+        "id": "4", "main_category": "Accessories", "sub_category": "Docking Station", "manufacturer": "Dell", "model": "WD19TB", "price": 700.0, "quantity": 1, "status": "In Stock", "assigned_to": "1"
+    }
+    items_db["5"] = {
+        "id": "5", "main_category": "Accessories", "sub_category": "Mouse", "manufacturer": "Logitech", "model": "MX Master 3", "price": 550.0, "quantity": 1, "status": "In Stock", "assigned_to": "3"
+    }
+    items_db["6"] = {
+        "id": "6", "main_category": "Licenses", "sub_category": "Subscription", "manufacturer": "OpenAI", "model": "ChatGPT Pro", "price": 800.0, "quantity": 1, "status": "In Stock", "assigned_to": "5"
+    }
 
-# Assigning some items to the users
-users_db["1"]["items"].append("3")
-users_db["1"]["items"].append("4")
-users_db["3"]["items"].append("5")
-users_db["5"]["items"].append("6")
+    # Assigning some items to the users
+    users_db["1"]["items"].append("3")
+    users_db["1"]["items"].append("4")
+    users_db["3"]["items"].append("5")
+    users_db["5"]["items"].append("6")
 
-# Changing item status from "In Stock" to "Assigned"
-items_db["3"]["status"] = "Assigned"
-items_db["4"]["status"] = "Assigned"
-items_db["5"]["status"] = "Assigned"
-items_db["6"]["status"] = "Assigned"
+    # Changing item status from "In Stock" to "Assigned"
+    items_db["3"]["status"] = "Assigned"
+    items_db["4"]["status"] = "Assigned"
+    items_db["5"]["status"] = "Assigned"
+    items_db["6"]["status"] = "Assigned"
