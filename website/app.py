@@ -1,12 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from data import items_db, users_db # Importing Items and Users Databases
-import demo # Importing Dummie Data
-demo.load_dummie_data() # Loading Dummie Data
+import demo # Importing Dummy Data
+demo.load_dummy_data() # Loading Dummy Data
 
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for flashing messages
 
-# Setting Up Item and User Counters Based on Pre-loaded Dummie Data
+# Setting Up Item and User Counters Based on Pre-loaded Dummy Data
 item_id_counter = 7
 user_id_counter = 7
 

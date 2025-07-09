@@ -37,7 +37,7 @@ TBA
 - :file_folder: *python* directory contains pure Python code:
     - :memo: *main.py* is the main project file
     - :memo: *functions.py* contains functions for reusable logic of the main file
-    - :memo: *demo.py* contains pre-created and loaded dummie data for demonstration purposes
+    - :memo: *demo.py* contains pre-created and loaded dummy data for demonstration purposes
 - :file_folder: *website* directory contains website data like HTML pages etc.
     - :file_folder: *templates* pre-rendered .html webpages
         - :memo: *add_item.html*
@@ -55,7 +55,7 @@ TBA
         - :memo: *stock_by_categoeirs.html*
     - :memo: *app.py* main webserver file
     - :memo: *data.py* database data webserver file
-    - :memo: *demo.py* dummie pre-loaded data webserver file
+    - :memo: *demo.py* dummy pre-loaded data webserver file
     - :memo: *wsgi.py* routing file for WSGI in order to work with Flask
     - :memo: *it-asset-management.conf* website configuration file for Apache
 - :file_folder: *docker* directory contains Dockerfile
