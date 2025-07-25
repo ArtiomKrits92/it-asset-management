@@ -11,9 +11,10 @@ Make your IT-related asset process simple and controlled. This Web-based system 
     2.2 Main Menu<br>
     2.3 Project Files<br>
 3. Deployment & Implementation<br>
-4. License<br>
-5. Authors<br>
-6. Feedback<br>
+4. Demonstration
+5. License<br>
+6. Authors<br>
+7. Feedback<br>
 
 ## 1. Introduction
 TBA
@@ -79,15 +80,17 @@ Testing Deployment:
 - a2ensite it-asset-management.conf && a2dissite 000-default.conf
 - service apache2 reload && service apache2 restart
 
-## 4. License
+## 4. Demonstration
+
+## 5. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
 
-## 5. Authors
+## 6. Authors
 This project is a result of the great collaboration of the two developers:
 - Desmond Coacher - [@dcoacher](https://github.com/dcoacher)
 - Artiom Krits - [@ArtiomKrits92](https://github.com/ArtiomKrits92)
 
-## 6. Feedback
+## 7. Feedback
 If you have any feedback, feel free to contact us via email: 
 - [Desmond Coacher](mailto:dcoacher@outlook.com)
 - [Artiom Krits](mailto:artiomkrits92@gmail.com)
