@@ -1,0 +1,284 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'IT Asset Management - High Availability Web Application Deployment'
+
+# These are values that can be customized when deploying the stack
+Parameters:
+  ImageURI:
+    Type: String
+    Description: The full ECR image path - this gets replaced automatically by our deploy script
+    Default: "ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/it-asset-management:latest"
+
+Resources:
+  # First, we need our own private network in AWS, this VPC gives us complete control over networking and security
+  VPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16  # IP range
+      EnableDnsHostnames: true  # Allows servers to have readable names like "server1.internal"
+      EnableDnsSupport: true    # Enables internal DNS resolution between servers
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-VPC
+
+  #  Main entrance to our private network
+  InternetGateway:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-IGW
+
+  # Actually connect the internet gateway to our VPC
+  InternetGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref InternetGateway
+      VpcId: !Ref VPC
+
+  # Create our first server location, this subnet will be in the first available data center in our chosen region
+  PublicSubnet1:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [0, !GetAZs '']  # AWS picks the first available data center
+      CidrBlock: 10.0.1.0/24    # 10.0.1.1 - 10.0.1.254
+      MapPublicIpOnLaunch: true  # Auto public IP address
+      Tags:
+        - Key: Name
+          Value: Public Subnet AZ1
+
+  # Create our second server location to make sure there is backup
+  PublicSubnet2:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: !Ref VPC
+      AvailabilityZone: !Select [1, !GetAZs '']  # AWS picks the second available data center
+      CidrBlock: 10.0.2.0/24    #  10.0.2.1 - 10.0.2.254
+      MapPublicIpOnLaunch: true  # Auto public IP address
+      Tags:
+        - Key: Name
+          Value: Public Subnet AZ2
+
+  # Points to the internet gateway
+  PublicRouteTable:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      VpcId: !Ref VPC
+      Tags:
+        - Key: Name
+          Value: Public Routes
+
+  # Anything going to the internet (0.0.0.0/0) goes via our gateway
+  DefaultPublicRoute:
+    Type: AWS::EC2::Route
+    DependsOn: InternetGatewayAttachment 
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: 0.0.0.0/0   
+
+  # Connect our first subnet to the routing table
+  PublicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet1
+
+  # Connect our second subnet to the same routing table
+  PublicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      SubnetId: !Ref PublicSubnet2
+
+  # Only allow traffic from our load balancer and SSH for management
+  WebServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: WebServerSecurityGroup
+      GroupDescription: Firewall rules for our Flask application servers
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        # Allow Flask traffic (port 31415) ONLY from our load balancer
+        - IpProtocol: tcp
+          FromPort: 31415
+          ToPort: 31415
+          SourceSecurityGroupId: !Ref LoadBalancerSecurityGroup
+        # Allow SSH access for server management and troubleshooting
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: WebServer-SG
+# Firewall for our load balancer
+  LoadBalancerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: LoadBalancerSecurityGroup
+      GroupDescription: Firewall rules for our public-facing load balancer
+      VpcId: !Ref VPC
+      SecurityGroupIngress:
+        # Allow HTTP traffic from anywhere on the internet
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0 
+      Tags:
+        - Key: Name
+          Value: LoadBalancer-SG
+# Role to download docker
+  EC2Role:
+    Type: AWS::IAM::Role
+    Properties:
+      # EC2 access to the role
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      #RO to ECR server to download the docker image
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-EC2-Role
+
+  #Role to EC2 instances
+  EC2InstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles:
+        - !Ref EC2Role
+
+  # Server template
+  LaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: IT-Asset-Management-LaunchTemplate
+      LaunchTemplateData:
+        ImageId: ami-0c02fb55956c7d316  # AL2
+        InstanceType: t3.micro          # Small instance size 
+        IamInstanceProfile:
+          Arn: !GetAtt EC2InstanceProfile.Arn 
+        SecurityGroupIds:
+          - !Ref WebServerSecurityGroup  
+        # Runs script and installs  docker
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            # Update the server with latest security patches
+            yum update -y
+            
+            # Install Docker (the container runtime)
+            yum install -y docker
+            
+            # Start the Docker service and make sure it starts on boot
+            service docker start
+            chkconfig docker on
+            
+            # Add the default user to the docker group so they can run docker commands
+            usermod -a -G docker ec2-user
+            
+            # Install AWS CLI v2 (needed to authenticate with ECR)
+            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+            unzip awscliv2.zip
+            sudo ./aws/install
+            
+            # Log into our private ECR registry using the server's IAM permissions
+            # This downloads a temporary password and logs Docker into our registry
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ImageURI%/*}
+            
+            # Download and run our Flask application container
+            # -d runs it in t
+            # Download and run our Flask application container
+            # -d runs it in the background, -p maps port 31415, --restart ensures it comes back after crashes
+            docker run -d -p 31415:31415 --restart unless-stopped ${ImageURI}
+        # Tag all servers created from this template so we can identify them
+        TagSpecifications:
+          - ResourceType: instance
+            Tags:
+              - Key: Name
+                Value: IT-Asset-Management-Instance
+
+  # Load balancer - the traffic distributor and public face of our application
+  ApplicationLoadBalancer:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: IT-Asset-Management-ALB
+      Scheme: internet-facing    # Accessible from the internet
+      Type: application         
+      Subnets:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      SecurityGroups:
+        - !Ref LoadBalancerSecurityGroup
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-ALB
+
+  # Group of servers and health check configuration
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: IT-Asset-Management-TG
+      Port: 31415              # Flask 
+      Protocol: HTTP          
+      VpcId: !Ref VPC
+      HealthCheckPath: /                    # Check the home page Flask ap  p
+      HealthCheckProtocol: HTTP             
+      HealthCheckIntervalSeconds: 30       
+      HealthCheckTimeoutSeconds: 5          
+      HealthyThresholdCount: 2             
+      UnhealthyThresholdCount: 3           
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-TG 
+ #incoming traffic for flask
+  LoadBalancerListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroup    
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 80            # Listen for incoming traffic fromrt
+      Protocol: HTTP      
+
+  # Automatically maintains the right number of healthy servers across both data centers
+  AutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      AutoScalingGroupName: IT-Asset-Management-ASG
+      VPCZoneIdentifier:
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+      LaunchTemplate:
+        LaunchTemplateId: !Ref LaunchTemplate
+        Version: !GetAtt LaunchTemplate.LatestVersionNumber
+      MinSize: 2            
+      MaxSize: 4            
+      DesiredCapacity: 2    
+      TargetGroupARNs:
+        - !Ref TargetGroup
+      HealthCheckType: ELB
+      HealthCheckGracePeriod: 300 
+      Tags:
+        - Key: Name
+          Value: IT-Asset-Management-ASG-Instance
+          PropagateAtLaunch: true  
+
+Outputs:
+  LoadBalancerURL:
+    Description: Your live application URL - this is what you'll demo to the class
+    Value: !Sub 'http://${ApplicationLoadBalancer.DNSName}'
+    Export:
+      Name: !Sub '${AWS::StackName}-LoadBalancerURL'
+
+  VPCId:
+    Description: The ID of the VPC we created (useful for troubleshooting)
+    Value: !Ref VPC
+    Export:
+      Name: !Sub '${AWS::StackName}-VPC'
