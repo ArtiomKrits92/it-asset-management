@@ -207,3 +207,6 @@ def stock_by_categories():
         if cat in stock:
             stock[cat] += item["price"] * item["quantity"]
     return render_template("stock_by_categories.html", stock=stock, menu_links=get_menu_links())
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=31415, debug=True)
