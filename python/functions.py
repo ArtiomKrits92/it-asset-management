@@ -8,8 +8,8 @@ user_id_counter = 7 # Creation of User ID Counter value (will start from 7 becau
 item_id_counter = 7 # Creation of Item ID Counter value (will start from 7 because of dummy data)
 
 def welcome_screen():   # Welcome Screen function
-    welcome_screen_total_users = len(users_db)  # Calculating Starting Total Users Existing in the Users Database (Including Dummie Data preloaded)
-    welcome_screen_total_items = len(items_db)  # Calculating Starting Total Items Existing in the Items Database (Including Dummie Data preloaded)
+    welcome_screen_total_users = len(users_db)  # Calculating Starting Total Users Existing in the Users Database (Including Dummy Data preloaded)
+    welcome_screen_total_items = len(items_db)  # Calculating Starting Total Items Existing in the Items Database (Including Dummy Data preloaded)
     welcome_screen_items_in_stock = 0   # Set Items with status "In Stock" with zero value before calculation
     welcome_screen_items_assigned = 0   # Set Items with status "Assigned" with zero value before calculation
     welcome_screen_items_categories = {"Assets": 0, "Accessories": 0, "Licenses": 0}    # Set Items Categories Types with zero value before calculation

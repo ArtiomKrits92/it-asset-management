@@ -4,7 +4,7 @@
 
 from functions import items_db, users_db    # Import an empty items and users databases data from functions.py file
 
-# Adding Users Dummie Data without any Items for now
+# Adding Users Dummy Data without any Items for now
 # Source used for random names creation: https://goodbyejohndoe.com/
 users_db["1"] = {"name": "Brandon Guidelines", "items": []}
 users_db["2"] = {"name": "Carnegie Mondover", "items": []}
@@ -13,7 +13,7 @@ users_db["4"] = {"name": "Abraham Pigeon", "items": []}
 users_db["5"] = {"name": "Miles Tone", "items": []}
 users_db["6"] = {"name": "Claire Voyant", "items": []}
 
-# Adding Items Dummie Data without any assignments
+# Adding Items Dummy Data without any assignments
 items_db["1"] = {
     "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000, "quantity": 1, "status": "In Stock", "assigned_to": None
 }
