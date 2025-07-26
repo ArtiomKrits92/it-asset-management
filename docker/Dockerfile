@@ -22,12 +22,12 @@ COPY website/ ./
 # Install Flask using pip (backup)
 RUN pip3 install flask
 
-# Expose port 5000 for web access
-EXPOSE 5000
+# Expose port 31415 web access
+EXPOSE 31415
 
 # Set environment variables for Flask
 ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # Command to run when container starts
-CMD ["python3", "-m", "flask", "run", "--port=5000"]
+CMD ["python3", "-m", "flask", "run", "--port=31415"]
