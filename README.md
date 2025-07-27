@@ -40,6 +40,7 @@ There are two different dabatases (Python dictionaries) exists in `functions.py`
 users_db["1"] = {"name": "Brandon Guidelines", "items": []}
 users_db["2"] = {"name": "Carnegie Mondover", "items": []}
 users_db["3"] = {"name": "John Doe", "items": []}
+
 # Items Database
 items_db["1"] = {
     "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000, "quantity": 1, "status": "In Stock", "assigned_to": None
@@ -53,7 +54,7 @@ items_db["3"] = {
 ```
 
 #### 2.1.2 Main Menu Functions
-- :one: Add New Item<br>
+- :one: `Add New Item` - Validates category selection, generates unique item ID, creates item record and updates global item ID counter<br>
 - :two: Delete Item<br>
 - :three: Modify Item<br>
 - :four: Assign Item<br>
