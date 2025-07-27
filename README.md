@@ -1,44 +1,31 @@
 # IT Asset Management
-Make your IT Asset Management process simple and controlled.<br>
-This web-based application runs on Apache will make it happen.
+Make your IT Asset Management process simple and controlled. This web-based, runs on Apache complete application for tracking computer equipment, software licenses, and accessories in the organization, will make it happen.
 
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
 ## Table Of Contents
 1. Introduction<br>
-2. Code Explaination<br>
-    2.1 Data Structure<br>
-    2.2 Main Menu Functions<br>
+2. Code Explaination and Data Structure<br>
+    2.1 Project Files<br>
+    2.2 Python Application Review<br>
+        2.2.1 Data Structure Design<br>
+        2.2.2 Main Menu Functions<br>   
+        2.2.3 Input Validations<br>
     2.3 Migration to Webserver Using Flask<br>
-    2.4 Project Files<br>
-3. Deployment & Implementation<br>
-4. Demonstration
-5. License<br>
-6. Authors<br>
-7. Feedback<br>
+    2.4 Containerization with Docker<br>
+    2.5 AWS Cloud Architecture<br>
+3. Deployment and Implementation<br>
+    3.1 Python Application Testing in Local Environment
+4. License<br>
+5. Authors<br>
+6. Feedback<br>
 
 ## 1. Introduction
-TBA
+Why we choose to made this application? The answer is pretty simple - every IT department needs asset tracking. It prevents equipment loss, tracks costs, manages assignments in every organization.
 
-## 2. Code Explaination
-### 2.1 Data Structure
-TBA
+## 2. Code Explaination and Data Structure
 
-### 2.2 Main Menu Functions
-- :one: Add New Item<br>
-- :two: Delete Item<br>
-- :three: Modify Item<br>
-- :four: Assign Item<br>
-- :five: Add New User<br>
-- :six: Show All Users<br>
-- :seven: Show All Items by the User<br>
-- :eight: Show All Stock Items<br>
-- :nine: Calculate Stock by Categories<br>
-
-### 2.3 Migration to Webserver Using Flask
-TBA
-
-### 2.4 Project Files
+### 2.1 Project Files
 - :file_folder: *aws* directory contains data relevant to AWS deployment
     - :memo: *cloudformation.yaml* configuration file for CloudFormation in AWS environment
 - :file_folder: *docker* directory contains Dockerfile
@@ -70,8 +57,36 @@ TBA
     - :memo: *it-asset-management.conf* website configuration file for Apache
     - :memo: *wsgi.py* routing file for WSGI in order to work with Flask
 
-## 3. Deployment & Implementation
-### 3.1 Python Core Code Local Testing (Optional)
+### 2.2 Python Application Review
+
+#### 2.2.1 Data Structure Design
+TBA
+
+#### 2.2.2 Main Menu Functions
+- :one: Add New Item<br>
+- :two: Delete Item<br>
+- :three: Modify Item<br>
+- :four: Assign Item<br>
+- :five: Add New User<br>
+- :six: Show All Users<br>
+- :seven: Show All Items by the User<br>
+- :eight: Show All Stock Items<br>
+- :nine: Calculate Stock by Categories<br>
+
+#### 2.2.3 Input Validations
+TBA
+
+### 2.3 Migration to Webserver Using Flask
+TBA
+
+### 2.4 Containerization with Docker
+TBA
+
+### 2.5 AWS Cloud Architecture
+TBA
+
+## 3. Deployment and Implementation
+### 3.1 Python Application Testing in Local Environment
 Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
 
 ### 3.2 Migrating Python Code to Webserver Running on Apache Using Flask
@@ -88,44 +103,15 @@ Testing Deployment:
 - a2ensite it-asset-management.conf && a2dissite 000-default.conf
 - service apache2 reload && service apache2 restart
 
-## 4. Demonstration
-TBA
-
-## 5. License
+## 4. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
 
-## 6. Authors
+## 5. Authors
 This project is a result of the great collaboration of the two developers:
 - Desmond Coacher - [@dcoacher](https://github.com/dcoacher)
 - Artiom Krits - [@ArtiomKrits92](https://github.com/ArtiomKrits92)
 
-## 7. Feedback
+## 6. Feedback
 If you have any feedback, feel free to contact us via email: 
 - [Desmond Coacher](mailto:dcoacher@outlook.com)
 - [Artiom Krits](mailto:artiomkrits92@gmail.com)
-
-## Bonus: Tech Notes and Tracking Status for Authors
-### Main Menu Structure (Entry Data Keys per Status):
-1. Add New Item (Done)
-2. Delete Item (Done)
-3. Modify Item (Done)
-4. Assign Item (Done)
-5. Add New User (Done)
-6. Show All Users (Done)
-7. Show All Items by the User (Done)
-8. Show All Stock Items (Done)
-9. Calculate Stock by Categories (Done)
-
-### Code Fine-Tuning:
-1. Testing All Functions (Done)
-2. Adding Typo Data Input by The User Checking (for non-numeric values) and Proper Error Messages Printing (Done)
-3. Code Comments Adding (Done)
-4. Code Checking for All Errors Scenarios (Done)
-
-### General Project Implementation Steps Status:
-1. Python Core Code Writing and Testing (Done) - Desmond
-2. Python Core Code Migration to Webserver Support using Flask (Done) - Desmond
-3. Adding Docker Containers Support (TBD) - Artiom
-4. Project Migration to AWS Including Redundancy Support (TBD) - Artiom
-5. Readme File Fine-Tuning and Proper Documentation Adding (TBD) - Desmond
-
