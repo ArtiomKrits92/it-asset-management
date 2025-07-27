@@ -1,6 +1,6 @@
 # IT Asset Management
-Make your IT-related asset process simple and controlled. This Web-based system runs on Apache will make it happen.
-* Note: Work in Progress. The final version may differ.
+Make your IT Asset Management process simple and controlled.<br>
+This web-based application runs on Apache will make it happen.
 
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
@@ -8,8 +8,9 @@ Make your IT-related asset process simple and controlled. This Web-based system 
 1. Introduction<br>
 2. Code Explaination<br>
     2.1 Data Structure<br>
-    2.2 Main Menu<br>
-    2.3 Project Files<br>
+    2.2 Main Menu Functions<br>
+    2.3 Migration to Webserver Using Flask<br>
+    2.4 Project Files<br>
 3. Deployment & Implementation<br>
 4. Demonstration
 5. License<br>
@@ -23,7 +24,7 @@ TBA
 ### 2.1 Data Structure
 TBA
 
-### 2.2 Main Menu
+### 2.2 Main Menu Functions
 - :one: Add New Item<br>
 - :two: Delete Item<br>
 - :three: Modify Item<br>
@@ -34,7 +35,10 @@ TBA
 - :eight: Show All Stock Items<br>
 - :nine: Calculate Stock by Categories<br>
 
-### 2.3 Project Files
+### 2.3 Migration to Webserver Using Flask
+TBA
+
+### 2.4 Project Files
 - :file_folder: *aws* directory contains data relevant to AWS deployment
     - :memo: *cloudformation.yaml* configuration file for CloudFormation in AWS environment
 - :file_folder: *docker* directory contains Dockerfile
@@ -85,6 +89,7 @@ Testing Deployment:
 - service apache2 reload && service apache2 restart
 
 ## 4. Demonstration
+TBA
 
 ## 5. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
