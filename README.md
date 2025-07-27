@@ -15,6 +15,8 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 HTML Template System<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Other Features<br>
     2.3 Containerization with Docker<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Dockerfile<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Operating With Docker<br>
     2.4 AWS Cloud Architecture<br>
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
@@ -96,7 +98,7 @@ if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status 
 Migration phase to web-server using Flask module has been choosen because Flask is a great solution for small or medium applications, it doesn't force specific structure and it's easy to convert existing Python login.
 
 #### 2.2.1 Application Structure
-```app.py``` is Main Flask Application
+```app.py``` - Main Flask Application
 ```python
 from flask import Flask, render_template, request, redirect, url_for, flash
 
@@ -164,7 +166,50 @@ flash(f"No item found with ID {item_id}.", "danger")
 ```
 
 ### 2.3 Containerization with Docker
-TBA
+Containerization using Docker provides same environment everywhere, the application runs independently of host system, it works on any Docker-enabled system and it's easy to run multiple instances with it.
+
+#### 2.3.1 Dockerfile
+```Dockerfile``` was created with all relevant commands for "one-click" environment creation. Port 31415 is used for web application.
+```python
+# Use Ubuntu as base image
+FROM ubuntu:22.04
+
+# Prevent interactive prompts during package installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Update package list and install dependencies
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-flask \
+    git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory inside container
+WORKDIR /var/www/it-asset-management
+
+# Copy website files from the correct path
+COPY website/ ./
+
+# Install Flask using pip (backup)
+RUN pip3 install flask
+
+# Expose port 31415 web access
+EXPOSE 31415
+
+# Set environment variables for Flask
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+
+# Command to run when container starts
+CMD ["python3", "-m", "flask", "run", "--port=31415"]
+```
+#### 2.3.2 Operating With Docker
+Follow the commands below in order to build image using Dockerfile, run container based on the image and verify running afterward:
+- `docker build -f docker/Dockerfile -t it-asset-management .` to build image based on Dockerfile
+- `docker run -d -p 31415:31415 --name my-app it-asset-management` to run container based on the image
+- `docker ps` and `curl http://localhost:31415` to verify running
 
 ### 2.4 AWS Cloud Architecture
 TBA
