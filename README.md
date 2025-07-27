@@ -10,7 +10,10 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1 Data Structure Design<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.2 Main Menu Functions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.3 Input Validations<br>
-    2.2 Migration to Webserver Using Flask<br>
+    2.2 Web Development Using Flask<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1 Application Structure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 HTML Template System<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Other Features<br>
     2.3 Containerization with Docker<br>
     2.4 AWS Cloud Architecture<br>
     2.5 Project Files<br>
@@ -89,8 +92,76 @@ if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status 
     print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.")    # Printing Error Message because the item is already assigned to another user
     return  # Exit the function in this phase (return to main menu)
 ```
-### 2.2 Migration to Webserver Using Flask
-TBA
+### 2.2 Web Development Using Flask
+Migration phase to web-server using Flask module has been choosen because Flask is a great solution for small or medium applications, it doesn't force specific structure and it's easy to convert existing Python login.
+
+#### 2.2.1 Application Structure
+```app.py``` is Main Flask Application
+```python
+from flask import Flask, render_template, request, redirect, url_for, flash
+
+app = Flask(__name__)
+app.secret_key = "supersecretkey"  # For flash messages
+```
+Route Pattern Example:
+```python
+@app.route("/add_item", methods=["GET", "POST"])
+def add_item():
+    global item_id_counter
+    if request.method == "POST":
+        # Process form submission
+        return redirect(url_for("add_item"))
+    # Show form
+    return render_template("add_item.html", menu_links=get_menu_links())
+```
+
+#### 2.2.2 HTML Template System
+HTML template pages were pre-created for each menu item function. ```base.html``` page uses as a template for all pages and ```index.html``` page for the home page with users and items databases calculated statistics. Python code via Flask module is integrated and running on them based on menu function has choosen.
+
+#### 2.2.3 Other Features
+- Flash Messages System
+```python
+flash(f"Item with ID {item_id} deleted.", "success")
+flash(f"No item found with ID {item_id}.", "danger")
+```
+- Required Fields Validation
+```html
+<form method="POST">
+  <div class="mb-3">
+    <label for="sub_category" class="form-label">Sub Category</label>
+    <select class="form-select" id="sub_category" name="sub_category" required>
+      <option value="">Select a main category</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Item</button>
+</form>
+```
+- Main and Sub-Categories Validation
+```html
+  <div class="mb-3">
+    <label for="main_category" class="form-label">Main Category</label>
+    <select class="form-select" id="main_category" name="main_category" required onchange="updateSubcategories()">
+      <option value="">Choose category</option>
+      <option value="Assets">Assets</option>
+      <option value="Accessories">Accessories</option>
+      <option value="Licenses">Licenses</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="sub_category" class="form-label">Sub Category</label>
+    <select class="form-select" id="sub_category" name="sub_category" required>
+      <option value="">Select a main category</option>
+    </select>
+  </div>
+```
+- Numeric Validation
+```html
+  <div class="mb-3">
+    <label for="price" class="form-label">Price per Unit (₪)</label>
+    <input type="number" class="form-control" id="price" name="price" min="0" step="0.01" required />
+  </div>
+```
 
 ### 2.3 Containerization with Docker
 TBA
