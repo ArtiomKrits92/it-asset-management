@@ -6,14 +6,14 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 ## Table Of Contents
 1. Introduction<br>
 2. Code Explaination and Data Structure<br>
-    2.1 Project Files<br>
-    2.2 Python Application Review<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1 Data Structure Design<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 Main Menu Functions<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Input Validations<br>
-    2.3 Migration to Webserver Using Flask<br>
-    2.4 Containerization with Docker<br>
-    2.5 AWS Cloud Architecture<br>
+    2.1 Python Application Review<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1 Data Structure Design<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.2 Main Menu Functions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.3 Input Validations<br>
+    2.2 Migration to Webserver Using Flask<br>
+    2.3 Containerization with Docker<br>
+    2.4 AWS Cloud Architecture<br>
+    2.5 Project Files<br>
 3. Deployment and Implementation<br>
     3.1 Python Application Testing in Local Environment
 4. License<br>
@@ -21,11 +21,40 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 6. Feedback<br>
 
 ## 1. Introduction
-Why we choose to made this application? The answer is pretty simple - every IT department needs asset tracking. It prevents equipment loss, tracks costs, manages assignments in every organization.
+Why we choose to made this application? The answer is pretty simple - every IT department needs asset tracking.<br>
+It prevents equipment loss, tracks costs, manages assignments in every organization.
 
 ## 2. Code Explaination and Data Structure
 
-### 2.1 Project Files
+### 2.1 Python Application Review
+
+#### 2.1.1 Data Structure Design
+TBA
+
+#### 2.1.2 Main Menu Functions
+- :one: Add New Item<br>
+- :two: Delete Item<br>
+- :three: Modify Item<br>
+- :four: Assign Item<br>
+- :five: Add New User<br>
+- :six: Show All Users<br>
+- :seven: Show All Items by the User<br>
+- :eight: Show All Stock Items<br>
+- :nine: Calculate Stock by Categories<br>
+
+#### 2.1.3 Input Validations
+TBA
+
+### 2.2 Migration to Webserver Using Flask
+TBA
+
+### 2.3 Containerization with Docker
+TBA
+
+### 2.4 AWS Cloud Architecture
+TBA
+
+### 2.5 Project Files
 - :file_folder: *aws* directory contains data relevant to AWS deployment
     - :memo: *cloudformation.yaml* configuration file for CloudFormation in AWS environment
 - :file_folder: *docker* directory contains Dockerfile
@@ -56,34 +85,6 @@ Why we choose to made this application? The answer is pretty simple - every IT d
     - :memo: *demo.py* dummy pre-loaded data webserver file
     - :memo: *it-asset-management.conf* website configuration file for Apache
     - :memo: *wsgi.py* routing file for WSGI in order to work with Flask
-
-### 2.2 Python Application Review
-
-#### 2.2.1 Data Structure Design
-TBA
-
-#### 2.2.2 Main Menu Functions
-- :one: Add New Item<br>
-- :two: Delete Item<br>
-- :three: Modify Item<br>
-- :four: Assign Item<br>
-- :five: Add New User<br>
-- :six: Show All Users<br>
-- :seven: Show All Items by the User<br>
-- :eight: Show All Stock Items<br>
-- :nine: Calculate Stock by Categories<br>
-
-#### 2.2.3 Input Validations
-TBA
-
-### 2.3 Migration to Webserver Using Flask
-TBA
-
-### 2.4 Containerization with Docker
-TBA
-
-### 2.5 AWS Cloud Architecture
-TBA
 
 ## 3. Deployment and Implementation
 ### 3.1 Python Application Testing in Local Environment
