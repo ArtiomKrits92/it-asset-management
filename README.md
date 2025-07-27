@@ -284,7 +284,7 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 ```
 
 ### 2.4.3 Automated Deployment Script
-Automated AWS Deployment Script has been used as a part of DevOps flow in order to automate the deployment process to cloud environment. As a result we have the same infrastructure available, which can be deployed to test environments every time it needs.
+*`deploy.sh`* is an Automated AWS Deployment Script which has been used as a part of DevOps flow in order to automate the deployment process to cloud environment. As a result we have the same infrastructure available, which can be deployed to test environments every time it needs.
 
 ```bash
 #!/bin/bash
