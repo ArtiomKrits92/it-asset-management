@@ -27,8 +27,8 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     3.3 Testing Python Application in Local Environment<br>
     3.4 Code Migration to Webserver Using Flask and Docker Container<br>
     3.5 AWS Setup and Cloud Deployment<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 TBA
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 TBA<br>
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
