@@ -8,9 +8,9 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 2. Code Explaination and Data Structure<br>
     2.1 Project Files<br>
     2.2 Python Application Review<br>
-                            2.2.1 Data Structure Design<br>
-                            2.2.2 Main Menu Functions<br>
-                            2.2.3 Input Validations<br>
+       2.2.1 Data Structure Design<br>
+       2.2.2 Main Menu Functions<br>
+       2.2.3 Input Validations<br>
     2.3 Migration to Webserver Using Flask<br>
     2.4 Containerization with Docker<br>
     2.5 AWS Cloud Architecture<br>
