@@ -21,15 +21,36 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 6. Feedback<br>
 
 ## 1. Introduction
-Why we choose to made this application? The answer is pretty simple - every IT department needs asset tracking.<br>
+Why we decided to made this application? The answer is pretty simple - every IT department needs asset tracking.<br>
 It prevents equipment loss, tracks costs, manages assignments in every organization.
 
 ## 2. Code Explaination and Data Structure
+Architecture Evolution of the Project:
+- Python Application Pure Code Developing
+- Code Integration to Webserver Using Flask
+- Containerization With Docker
+- Migration The Environment to AWS With High Availability
 
 ### 2.1 Python Application Review
-
 #### 2.1.1 Data Structure Design
-TBA
+Python Pure Code contains `main.py` with main menu UI, `functions.py` for all core logic and `demo.py` for dummy data pre-loading.
+There are two different dabatases (Python dictionaries) exists in `functions.py` with relationships by `assigned_to` links items to users. There is fast lookup by users/items ID's.
+```python
+# Users Database
+users_db["1"] = {"name": "Brandon Guidelines", "items": []}
+users_db["2"] = {"name": "Carnegie Mondover", "items": []}
+users_db["3"] = {"name": "John Doe", "items": []}
+# Items Database
+items_db["1"] = {
+    "id": "1", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Dell", "model": "XPS", "price": 5000, "quantity": 1, "status": "In Stock", "assigned_to": None
+}
+items_db["2"] = {
+    "id": "2", "main_category": "Assets", "sub_category": "Laptop", "manufacturer": "Lenovo", "model": "X1 Carbon", "price": 8300, "quantity": 1, "status": "In Stock", "assigned_to": None
+}
+items_db["3"] = {
+    "id": "3", "main_category": "Assets", "sub_category": "PC", "manufacturer": "Asus", "model": "Desktop Intel Core i9 14900KS", "price": 14900, "quantity": 1, "status": "In Stock", "assigned_to": "1"
+}
+```
 
 #### 2.1.2 Main Menu Functions
 - :one: Add New Item<br>
@@ -64,7 +85,7 @@ TBA
     - :memo: *functions.py* contains functions for reusable logic of the main file
     - :memo: *demo.py* contains pre-created and loaded dummy data for demonstration purposes
 - :file_folder: *scripts* directory contains script files
-    - :memo: *deploy.sh* script for deploying EC2 machine in AWS environment
+    - :memo: *deploy.sh* AWS deployment automation script
 - :file_folder: *website* directory contains website data like HTML pages etc.
     - :file_folder: *templates* pre-rendered .html webpages
         - :memo: *add_item.html*
