@@ -54,19 +54,41 @@ items_db["3"] = {
 ```
 
 #### 2.1.2 Main Menu Functions
-- :one: `Add New Item` - Validates category selection, generates unique item ID, creates item record and updates global item ID counter<br>
-- :two: Delete Item<br>
-- :three: Modify Item<br>
-- :four: Assign Item<br>
-- :five: Add New User<br>
-- :six: Show All Users<br>
-- :seven: Show All Items by the User<br>
-- :eight: Show All Stock Items<br>
-- :nine: Calculate Stock by Categories<br>
+- `Add New Item` - Validates category selection, generates unique item ID, creates item record and updates global item ID counter<br>
+- `Delete Item` - Searches item by ID, removes from user's item list in case it assigned to him and deletes from items database<br>
+- `Modify Item` - Loads existing item data by item ID, allows editing manufacturer, model and price data<br>
+- `Assign Item` - Validates items and user exist, checks if item not already assigned, updates item status to "Assigned" and adds item ID to user's items list<br>
+- `Add New User` - Generates unique user ID, creates user record and updates global user ID counter<br>
+- `Show All Users` - Shows all existing users list<br>
+- `Show All Items by the User` - Shows all assigned items to specific user by user ID<br>
+- `Show All Stock Items` - Shows all existing stock items list<br>
+- `Calculate Stock by Categories` - Calculates all stock items price by categories<br>
 
 #### 2.1.3 Input Validations
-TBA
-
+There are multiple input validation patterns:
+- Numeric Validation
+```python
+if not price.isdigit(): # Checking if the user entered numeric value into the input line above
+    print("❌ Error: Entered value for the price must be numeric.")   # Printing Error Message
+    return  # Exit the function in this phase (return to main menu)
+```
+- Category Validation
+```python
+if sub_category.lower() not in ["pc", "laptop"]:    # In case the User's choise is not equal the sub category prompt
+    print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+    return  # Exit the function in this phase (return to main menu)
+```
+- Existence Validation
+```python
+    if not users_db:    # In case there are no users exists in the Users Database
+        print("❌ Error: There are no users existing in the database.") ## Printing Error Message 
+```
+- Item Assignment Status Validation
+```python
+if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status is "Assigned"
+    print(f"❌ Error: The item `{items_db[item_id]["sub_category"]} {items_db[item_id]["manufacturer"]} {items_db[item_id]["model"]}` with the ID `{item_id}` is already assigned to another user.")    # Printing Error Message because the item is already assigned to another user
+    return  # Exit the function in this phase (return to main menu)
+```
 ### 2.2 Migration to Webserver Using Flask
 TBA
 
