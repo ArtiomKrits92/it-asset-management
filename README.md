@@ -314,9 +314,9 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 ## 3. Deployment and Implementation
 ### 3.1 Getting Started
 Before starting, ensure to check your environment is ready to go:
-- AWS CLI Installed - [AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
-- Docker Installed and Running - [Install Docker Engine](https://docs.docker.com/engine/install/)
-- AWS Sandbox Lab is Running - [AWS Academy Login](https://awsacademy.instructure.com/)
+- AWS CLI Installed - *[AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*`*
+- Docker Installed and Running - *[Install Docker Engine](https://docs.docker.com/engine/install/)*
+- AWS Sandbox Lab is Running - *[AWS Academy Login](https://awsacademy.instructure.com/)*
 
 ### 3.2 Cloning Github Repository
 Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
