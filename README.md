@@ -18,8 +18,8 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Dockerfile<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.2 Operating With Docker<br>
     2.4 AWS Cloud Architecture<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 TBA<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 TBA<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 CloudFormation Template Structure<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 EC2 Launch Template<br>
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
     3.1 Getting Started<br>
@@ -221,11 +221,61 @@ Amazon Web Services platform has been chosen for cloud hosting of the web-server
 - Multiple EC2 Instances
 - Multiple Availability Zones
 
-#### 2.4.1 TBA
-TBA
+#### 2.4.1 CloudFormation Template Structure
+*```cloudformation.yaml```* file contains all relevant configuration for the above mentioned features to deploy:
+- *`Network Infrastructure`* - Isolated network environment with multiple subnets located in different avialability zones with direct internet access for web servers
+```yaml
+VPC: 10.0.0.0/16
+PublicSubnet1: 10.0.1.0/24 (AZ-1)
+PublicSubnet2: 10.0.2.0/24 (AZ-2)
+InternetGateway: Internet access
+```
+- *`Security Groups`* - Least privilege access
+```yaml
+LoadBalancerSG: Port 80 from anywhere
+WebServerSG: Port 31415 from LoadBalancer only
+```
+- *`Auto Scaling Group`* - Always 2 or more instances properly running for HA including health check for replacing failed instances
+```yaml
+MinSize: 2
+MaxSize: 4
+DesiredCapacity: 2
+HealthCheckType: ELB
+```
+- *`Application Load Balancer`* - Splits users requests sends to web servers across instances via sending traffic to healthy instances only
+```yaml
+Scheme: internet-facing
+HealthCheckPath: /
+HealthCheckInterval: 30s
+```
 
-#### 2.4.2 TBA
-TBA
+#### 2.4.2 EC2 Launch Template
+Launch Template for EC2 instances is used for creating new instances in order to automatically replace failed instances, which can increase capacity automatically as well.
+
+```shell
+#!/bin/bash
+# AWS Academy compatible startup script
+
+# Update system and install requirements
+yum update -y
+yum install -y docker git
+
+# Start Docker
+service docker start
+chkconfig docker on
+usermod -a -G docker ec2-user
+
+# Clone repository and build app (no ECR dependency)
+cd /home/ec2-user
+git clone https://github.com/dcoacher/it-asset-management.git
+cd it-asset-management
+
+# Build Docker image from source
+docker build -f docker/Dockerfile -t it-asset-management .
+
+# Run the application
+docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-asset-management
+```
 
 ### 2.5 Project Files
 - :file_folder: *`aws`* directory contains data relevant to AWS deployment
