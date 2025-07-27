@@ -314,7 +314,7 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 ## 3. Deployment and Implementation
 ### 3.1 Getting Started
 Before starting, ensure to check your environment is ready to go:
-- AWS CLI Installed - *[AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*`*
+- AWS CLI Installed - *[AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*
 - Docker Installed and Running - *[Install Docker Engine](https://docs.docker.com/engine/install/)*
 - AWS Sandbox Lab is Running - *[AWS Academy Login](https://awsacademy.instructure.com/)*
 
