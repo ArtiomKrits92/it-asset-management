@@ -22,7 +22,8 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 TBA<br>
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
-    3.1 Python Application Testing in Local Environment
+    3.1 Getting Started<br>
+    3.2 Python Application Testing in Local Environment<br>
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
@@ -259,11 +260,14 @@ TBA
     - :memo: *`wsgi.py`* routing file for WSGI in order to work with Flask
 
 ## 3. Deployment and Implementation
-### 3.1 Python Application Testing in Local Environment
+### 3.1 Getting Started
+TBA
+
+### 3.2 Python Application Testing in Local Environment
 Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
 TBA
 
-### 3.2 Migrating Python Code to Webserver Running on Apache Using Flask
+### 3.3 Migrating Python Code to Webserver Running on Apache Using Flask
 TBA
 
 ## 4. License
