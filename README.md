@@ -30,6 +30,7 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     3.5 AWS Setup and Cloud Deployment<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 Running Automated Deployment Script<br>
+    3.6 Web Application Access and HA Testing via AWS GUI<br>
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
@@ -284,7 +285,8 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 ```
 
 ### 2.4.3 Automated Deployment Script
-*`deploy.sh`* is an Automated AWS Deployment Script which has been used as a part of DevOps flow in order to automate the deployment process to cloud environment. As a result we have the same infrastructure available, which can be deployed to test environments every time it needs.
+*`deploy.sh`* is an Automated AWS Deployment Script which has been used as a part of DevOps flow in order to automate the deployment process to cloud environment. As a result we have the same infrastructure available, which can be deployed to test environments every time it needs.<br>
+The script gets data of AWS account ID, creates ECR repository for Docker image, builds and pushs Docker image and deploys CloudFormation infrastructure using *`cloudformation.yaml`* configuration file as well.
 
 ```bash
 #!/bin/bash
@@ -371,9 +373,17 @@ Migrate the Python application to Apache webserver using Flask module and Docker
 
 ### 3.5 AWS Setup and Cloud Deployment
 #### 3.5.1 Setting AWS Lab Credentials
-TBA
+- *`export AWS_ACCESS_KEY_ID=<access-key-data>`* to export AWS access key value
+- *`export AWS_SECRET_ACCESS_KEY=<secret-key-data>`* to export AWS secret key value
+- *`export AWS_SESSION_TOKEN=<token-data>`* to export AWS Session token value
+- *`export AWS_DEFAULT_REGION=us-east-1`* to set up the default region value
+- *`aws sts get-caller-identity`* to verify workability
 
 #### 3.5.2 Running Automated Deployment Script
+- *`bash scripts/deploy.sh`* to complete environment deploying using automation script
+- Wait up to 5-10 minutes for all environment creation
+
+### 3.6 Web Application Access and HA Testing via AWS GUI
 TBA
 
 ## 4. License
