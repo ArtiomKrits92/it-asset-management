@@ -349,6 +349,7 @@ Before starting, ensure to check your environment is ready to go:
 - AWS CLI Installed - *[AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*
 - Docker Installed and Running - *[Install Docker Engine](https://docs.docker.com/engine/install/)*
 - Git Installed - *[Git Downloads](https://git-scm.com/downloads)*
+- Python Installed - *[Download Python](https://www.python.org/downloads/)*
 - AWS Sandbox Lab is Running - *[AWS Academy Login](https://awsacademy.instructure.com/)*
 
 ### 3.2 Cloning Github Repository
