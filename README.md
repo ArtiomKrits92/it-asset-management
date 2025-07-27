@@ -18,6 +18,8 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Dockerfile<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Operating With Docker<br>
     2.4 AWS Cloud Architecture<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 TBA<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 TBA<br>
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
     3.1 Python Application Testing in Local Environment
@@ -80,7 +82,7 @@ if not price.isdigit(): # Checking if the user entered numeric value into the in
 - Category Validation
 ```python
 if sub_category.lower() not in ["pc", "laptop"]:    # In case the User's choise is not equal the sub category prompt
-    print("❌ Error: Error: Invalid Item has been choosen.")  # Error Message Printing
+    print("❌ Error: Error: Invalid Item has been chosen.")  # Error Message Printing
     return  # Exit the function in this phase (return to main menu)
 ```
 - Existence Validation
@@ -118,7 +120,7 @@ def add_item():
 ```
 
 #### 2.2.2 HTML Template System
-HTML template pages were pre-created for each menu item function. *```base.html```* page uses as a template for all pages and *```index.html```* page for the home page with users and items databases calculated statistics. Python code via Flask module is integrated and running on them based on menu function has choosen.
+HTML template pages were pre-created for each menu item function. *```base.html```* page uses as a template for all pages and *```index.html```* page for the home page with users and items databases calculated statistics. Python code via Flask module is integrated and running on them based on menu function has chosen.
 
 #### 2.2.3 Other Features
 - Flash Messages System
@@ -212,6 +214,16 @@ Follow the commands below in order to build image using Dockerfile, run containe
 - *`docker ps`* and *`curl http://localhost:31415`* to verify running
 
 ### 2.4 AWS Cloud Architecture
+Amazon Web Services platform has been chosen for cloud hosting of the web-server including HA (High Availability) feature using AWS tools:
+- Load Balancer
+- Auto Scaling Group
+- Multiple EC2 Instances
+- Multiple Availability Zones
+
+#### 2.4.1 TBA
+TBA
+
+#### 2.4.2 TBA
 TBA
 
 ### 2.5 Project Files
