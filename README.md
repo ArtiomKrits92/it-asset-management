@@ -340,7 +340,7 @@ Migrate the Python application to Apache webserver using Flask module and Docker
 - *`docker build -f docker/Dockerfile -t it-asset-management .`* to build image based on Dockerfile
 - *`docker run -d -p 31415:31415 --name my-app it-asset-management`* to run container based on the image
 - *`curl http://localhost:31415`* to verify running
-- *`docker stop demo-app && docker rm demo-app`* for cleanup performing
+- *`docker stop my-app && docker rm my-app`* for cleanup performing
 
 ### 3.5 AWS Setup and Cloud Deployment
 #### 3.5.1 Setting AWS Lab Credentials
