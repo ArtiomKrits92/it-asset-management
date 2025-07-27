@@ -215,7 +215,7 @@ Follow the commands below in order to build image using Dockerfile, run containe
 TBA
 
 ### 2.5 Project Files
-- :file_folder: `*aws*` directory contains data relevant to AWS deployment
+- :file_folder: *`aws`* directory contains data relevant to AWS deployment
     - :memo: *cloudformation.yaml* configuration file for CloudFormation in AWS environment
 - :file_folder: *docker* directory contains Dockerfile
     - :memo: *Dockerfile* configuration file for Docker environment deployment
