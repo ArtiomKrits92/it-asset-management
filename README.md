@@ -23,7 +23,9 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
     3.1 Getting Started<br>
-    3.2 Python Application Testing in Local Environment<br>
+    3.2 Cloning Github Repository<br>
+    3.3 Testing Python Application in Local Environment<br>
+    3.4 TBA
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
@@ -311,13 +313,19 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 
 ## 3. Deployment and Implementation
 ### 3.1 Getting Started
-TBA
+Before starting, ensure to check your environment is ready to go:
+- AWS CLI Installed ([Documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html))
+- Docker Installed and Running
+- AWS Sandbox Lab is Running
 
-### 3.2 Python Application Testing in Local Environment
+### 3.2 Cloning Github Repository
 Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
 TBA
 
-### 3.3 Migrating Python Code to Webserver Running on Apache Using Flask
+### 3.3 Testing Python Application in Local Environment
+Test pure python code in local environment in case to check its workability.
+
+### 3.4 TBA
 TBA
 
 ## 4. License
