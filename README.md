@@ -4,12 +4,12 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 ![Logo](https://cdn3d.iconscout.com/3d/premium/thumb/asset-allocation-3d-icon-download-in-png-blend-fbx-gltf-file-formats--money-management-portfolio-diversification-risk-classes-capital-preservation-investment-pack-business-icons-7863809.png?f=webp)
 
 ## Table Of Contents
-1. Introduction<br>
-2. Code Explaination and Data Structure<br>
-    2.1 Python Application Review<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1 Data Structure Design<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.2 Main Menu Functions<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.3 Input Validations<br>
+1. [Introduction](#1-introduction)<br>
+2. [Code Explanation and Data Structure](#2-code-explanation-and-data-structure)<br>
+    [2.1 Python Application Review](#21-python-application-review)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.1 Data Structure Design](#211-data-structure-design)n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.2 Main Menu Functions](#212-main-menu-functions)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.3 Input Validations](#213-input-validations)<br>
     2.2 Web Development Using Flask<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1 Application Structure<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 HTML Template System<br>
@@ -384,7 +384,11 @@ Migrate the Python application to Apache webserver using Flask module and Docker
 - Wait up to 5-10 minutes for all environment creation
 
 ### 3.6 Web Application Access and HA Testing via AWS GUI
-TBA
+ - Retrieve Load Balancer URL via AWS GUI and access cloud application
+ - Take a look on EC2 instances running
+ - Test HA by stopping one instance (verify that another one new instance will be created to replace stopped/failed instance)
+ - Access cloud application again in order to check workability
+ - Check Auto Scaling policy
 
 ## 4. License
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://github.com/dcoacher/it-asset-management/blob/main/LICENSE)
