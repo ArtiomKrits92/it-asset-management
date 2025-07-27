@@ -20,6 +20,7 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     2.4 AWS Cloud Architecture<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 CloudFormation Template Structure<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 EC2 Launch Template<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.3 Automated Deployment Script<br>
     2.5 Project Files<br>
 3. Deployment and Implementation<br>
     3.1 Getting Started<br>
@@ -28,7 +29,7 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     3.4 Code Migration to Webserver Using Flask and Docker Container<br>
     3.5 AWS Setup and Cloud Deployment<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 TBA<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 Running Automated Deployment Script<br>
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
@@ -282,6 +283,32 @@ docker build -f docker/Dockerfile -t it-asset-management .
 docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-asset-management
 ```
 
+### 2.4.3 Automated Deployment Script
+Automated AWS Deployment Script has been used as a part of DevOps flow in order to automate the deployment process to cloud environment. As a result we have the same infrastructure available, which can be deployed to test environments every time it needs.
+
+```bash
+#!/bin/bash
+# IT Asset Management AWS Deployment Script
+
+echo "=== Getting AWS Account ID ==="
+ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
+echo "Account ID: $ACCOUNT_ID"
+
+echo "=== Creating ECR Repository ==="
+aws ecr create-repository --repository-name it-asset-management --region us-east-1 || echo "Repository already exists"
+
+echo "=== Building Docker Image ==="
+docker build -f docker/Dockerfile -t it-asset-management .
+
+echo "=== Logging into ECR ==="
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+
+echo "=== Tagging and Pushing Image ==="
+IMAGE_URI="$ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com/it-asset-management:latest"
+docker tag it-asset-management:latest $IMAGE_URI
+docker push $IMAGE_URI
+```
+
 ### 2.5 Project Files
 - :file_folder: *`aws`* directory contains data relevant to AWS deployment
     - :memo: *`cloudformation.yaml`* configuration file for CloudFormation in AWS environment
@@ -346,7 +373,7 @@ Migrate the Python application to Apache webserver using Flask module and Docker
 #### 3.5.1 Setting AWS Lab Credentials
 TBA
 
-#### 3.5.2 TBA
+#### 3.5.2 Running Automated Deployment Script
 TBA
 
 ## 4. License
