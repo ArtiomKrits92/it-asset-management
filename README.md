@@ -25,7 +25,10 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     3.1 Getting Started<br>
     3.2 Cloning Github Repository<br>
     3.3 Testing Python Application in Local Environment<br>
-    3.4 TBA
+    3.4 Code Migration to Webserver Using Flask and Docker Container<br>
+    3.5 AWS Setup and Cloud Deployment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 TBA
 4. License<br>
 5. Authors<br>
 6. Feedback<br>
@@ -316,16 +319,34 @@ docker run -d -p 31415:31415 --restart unless-stopped --name it-asset-app it-ass
 Before starting, ensure to check your environment is ready to go:
 - AWS CLI Installed - *[AWS CLI install and update instructions](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)*
 - Docker Installed and Running - *[Install Docker Engine](https://docs.docker.com/engine/install/)*
+- Git Installed - *[Git Downloads](https://git-scm.com/downloads)*
 - AWS Sandbox Lab is Running - *[AWS Academy Login](https://awsacademy.instructure.com/)*
 
 ### 3.2 Cloning Github Repository
-Before proceed to the next steps, you can test pure python code in local environment in case to check its workability.
-TBA
+*`Git Bash`* application or *`Visual Studio Code terminal`* will be used for the deployment in the next steps:
+- *`mkdir Documents/technion-midterm-project`* to create a clean workspace for demonstration
+- *`cd Documents/technion-midterm-project`* to change work directory
+- *`git clone https://github.com/dcoacher/it-asset-management.git`* to clone git repository
+- *`cd it-asset-management`* to change work directory
+- *`ls -la`* to display project structure
 
 ### 3.3 Testing Python Application in Local Environment
-Test pure python code in local environment in case to check its workability.
+Test Python application in local environment in order to check it's workability:
+- Open the project directory folder in Visual Studio Code
+- Run the *`main.py`* application file from *`python`* folder
 
-### 3.4 TBA
+### 3.4 Code Migration to Webserver Using Flask and Docker Container
+Migrate the Python application to Apache webserver using Flask module and Docker Containerization and perform test in local environment:
+- *`docker build -f docker/Dockerfile -t it-asset-management .`* to build image based on Dockerfile
+- *`docker run -d -p 31415:31415 --name my-app it-asset-management`* to run container based on the image
+- *`curl http://localhost:31415`* to verify running
+- *`docker stop demo-app && docker rm demo-app`* for cleanup performing
+
+### 3.5 AWS Setup and Cloud Deployment
+#### 3.5.1 Setting AWS Lab Credentials
+TBA
+
+#### 3.5.2 TBA
 TBA
 
 ## 4. License
