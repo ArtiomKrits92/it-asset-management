@@ -38,8 +38,8 @@ Architecture Evolution of the Project:
 
 ### 2.1 Python Application Review
 #### 2.1.1 Data Structure Design
-Python Pure Code contains `main.py` with main menu UI, `functions.py` for all core logic and `demo.py` for dummy data pre-loading.
-There are two different dabatases (Python dictionaries) exists in `functions.py` with relationships by `assigned_to` links items to users. There is fast lookup by users/items ID's.
+Python Pure Code contains *`main.py`* with main menu UI, *`functions.py`* for all core logic and *`demo.py`* for dummy data pre-loading.
+There are two different dabatases (Python dictionaries) exists in *`functions.py`* with relationships by *`assigned_to`* links items to users. There is fast lookup by users/items ID's.
 ```python
 # Users Database
 users_db["1"] = {"name": "Brandon Guidelines", "items": []}
@@ -59,15 +59,15 @@ items_db["3"] = {
 ```
 
 #### 2.1.2 Main Menu Functions
-- `Add New Item` - Validates category selection, generates unique item ID, creates item record and updates global item ID counter<br>
-- `Delete Item` - Searches item by ID, removes from user's item list in case it assigned to him and deletes from items database<br>
-- `Modify Item` - Loads existing item data by item ID, allows editing manufacturer, model and price data<br>
-- `Assign Item` - Validates items and user exist, checks if item not already assigned, updates item status to "Assigned" and adds item ID to user's items list<br>
-- `Add New User` - Generates unique user ID, creates user record and updates global user ID counter<br>
-- `Show All Users` - Shows all existing users list<br>
-- `Show All Items by the User` - Shows all assigned items to specific user by user ID<br>
-- `Show All Stock Items` - Shows all existing stock items list<br>
-- `Calculate Stock by Categories` - Calculates all stock items price by categories<br>
+- *`Add New Item`* - Validates category selection, generates unique item ID, creates item record and updates global item ID counter<br>
+- *`Delete Item`* - Searches item by ID, removes from user's item list in case it assigned to him and deletes from items database<br>
+- *`Modify Item`* - Loads existing item data by item ID, allows editing manufacturer, model and price data<br>
+- *`Assign Item`* - Validates items and user exist, checks if item not already assigned, updates item status to "Assigned" and adds item ID to user's items list<br>
+- *`Add New User`* - Generates unique user ID, creates user record and updates global user ID counter<br>
+- *`Show All Users`* - Shows all existing users list<br>
+- *`Show All Items by the User`* - Shows all assigned items to specific user by user ID<br>
+- *`Show All Stock Items`* - Shows all existing stock items list<br>
+- *`Calculate Stock by Categories`* - Calculates all stock items price by categories<br>
 
 #### 2.1.3 Input Validations
 There are multiple input validation patterns:
@@ -98,7 +98,7 @@ if items_db[item_id]["status"] == "Assigned":   # Checking if the Item's Status 
 Migration phase to web-server using Flask module has been choosen because Flask is a great solution for small or medium applications, it doesn't force specific structure and it's easy to convert existing Python login.
 
 #### 2.2.1 Application Structure
-```app.py``` - Main Flask Application
+*```app.py```* - Main Flask Application
 ```python
 from flask import Flask, render_template, request, redirect, url_for, flash
 
@@ -118,7 +118,7 @@ def add_item():
 ```
 
 #### 2.2.2 HTML Template System
-HTML template pages were pre-created for each menu item function. ```base.html``` page uses as a template for all pages and ```index.html``` page for the home page with users and items databases calculated statistics. Python code via Flask module is integrated and running on them based on menu function has choosen.
+HTML template pages were pre-created for each menu item function. *```base.html```* page uses as a template for all pages and *```index.html```* page for the home page with users and items databases calculated statistics. Python code via Flask module is integrated and running on them based on menu function has choosen.
 
 #### 2.2.3 Other Features
 - Flash Messages System
@@ -169,7 +169,7 @@ flash(f"No item found with ID {item_id}.", "danger")
 Containerization using Docker provides same environment everywhere, the application runs independently of host system, it works on any Docker-enabled system and it's easy to run multiple instances with it.
 
 #### 2.3.1 Dockerfile
-```Dockerfile``` was created with all relevant commands for "one-click" environment creation. Port 31415 is used for web application.
+*```Dockerfile```* was created with all relevant commands for "one-click" environment creation. Port 31415 is used for web application.
 ```python
 # Use Ubuntu as base image
 FROM ubuntu:22.04
