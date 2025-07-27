@@ -7,33 +7,33 @@ Make your IT Asset Management process simple and controlled. This web-based, run
 1. [Introduction](#1-introduction)<br>
 2. [Code Explanation and Data Structure](#2-code-explanation-and-data-structure)<br>
     [2.1 Python Application Review](#21-python-application-review)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.1 Data Structure Design](#211-data-structure-design)n<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.1 Data Structure Design](#211-data-structure-design)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.2 Main Menu Functions](#212-main-menu-functions)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.1.3 Input Validations](#213-input-validations)<br>
-    2.2 Web Development Using Flask<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1 Application Structure<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 HTML Template System<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 Other Features<br>
-    2.3 Containerization with Docker<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 Dockerfile<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.2 Operating With Docker<br>
-    2.4 AWS Cloud Architecture<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 CloudFormation Template Structure<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 EC2 Launch Template<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.3 Automated Deployment Script<br>
-    2.5 Project Files<br>
-3. Deployment and Implementation<br>
-    3.1 Getting Started<br>
-    3.2 Cloning Github Repository<br>
-    3.3 Testing Python Application in Local Environment<br>
-    3.4 Code Migration to Webserver Using Flask and Docker Container<br>
-    3.5 AWS Setup and Cloud Deployment<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.1 Setting AWS Lab Credentials<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.5.2 Running Automated Deployment Script<br>
-    3.6 Web Application Access and HA Testing via AWS GUI<br>
-4. License<br>
-5. Authors<br>
-6. Feedback<br>
+    [2.2 Web Development Using Flask](#22-web-development-using-flask)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2.1 Application Structure](#221-application-structure)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2.2 HTML Template System](#222-html-template-system)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.2.3 Other Features](#223-other-features)<br>
+    [2.3 Containerization with Docker](#23-containerization-with-docker)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.3.1 Dockerfile](#231-dockerfile)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.3.2 Operating With Docker](#232-operating-with-docker)<br>
+    [2.4 AWS Cloud Architecture](#24-aws-cloud-architecture)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.4.1 CloudFormation Template Structure](#241-cloudformation-template-structure)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.4.2 EC2 Launch Template](#242-ec2-launch-template)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[2.4.3 Automated Deployment Script](#243-automated-deployment-script)<br>
+    [2.5 Project Files](#25-project-files)<br>
+3. [Deployment and Implementation](#3-deployment-and-implementation)<br>
+    [3.1 Getting Started](#31-getting-started)<br>
+    [3.2 Cloning Github Repository](#32-cloning-github-repository)<br>
+    [3.3 Testing Python Application in Local Environment](#33-testing-python-application-in-local-environment)<br>
+    [3.4 Code Migration to Webserver Using Flask and Docker Container](#34-code-migration-to-webserver-using-flask-and-docker-container)<br>
+    [3.5 AWS Setup and Cloud Deployment](#35-aws-setup-and-cloud-deployment)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.5.1 Setting AWS Lab Credentials](#351-setting-aws-lab-credentials)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.5.2 Running Automated Deployment Script](#352-running-automated-deployment-script)<br>
+    [3.6 Web Application Access and HA Testing via AWS GUI](#36-web-application-access-and-ha-testing-via-aws-gui)<br>
+4. [License](#4-license)<br>
+5. [Authors](#5-authors)<br>
+6. [Feedback](#6-feedback)<br>
 
 ## 1. Introduction
 Why we decided to made this application? The answer is pretty simple - every IT department needs asset tracking.<br>
