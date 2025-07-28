@@ -314,7 +314,7 @@ docker push $IMAGE_URI
 
 ### 2.5 Project Files
 - :file_folder: *`aws`* directory contains data relevant to AWS deployment
-    - :memo: *`cloudformation.yaml`* configuration file for CloudFormation in AWS environment
+    - :page_facing_up: *`cloudformation.yaml`* configuration file for CloudFormation in AWS environment
 - :file_folder: *`docker`* directory contains Dockerfile
     - :memo: *`Dockerfile`* configuration file for Docker environment deployment
 - :file_folder: *`python`* directory contains pure Python code:
