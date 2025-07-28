@@ -316,31 +316,31 @@ docker push $IMAGE_URI
 - :file_folder: *`aws`* directory contains data relevant to AWS deployment
     - :page_facing_up: *`cloudformation.yaml`* configuration file for CloudFormation in AWS environment
 - :file_folder: *`docker`* directory contains Dockerfile
-    - :memo: *`Dockerfile`* configuration file for Docker environment deployment
+    - :page_facing_up: *`Dockerfile`* configuration file for Docker environment deployment
 - :file_folder: *`python`* directory contains pure Python code:
-    - :memo: *`main.py`* is the main project file
-    - :memo: *`functions.py`* contains functions for reusable logic of the main file
-    - :memo: *`demo.py`* contains pre-created and loaded dummy data for demonstration purposes
+    - :page_facing_up: *`main.py`* is the main project file
+    - :page_facing_up: *`functions.py`* contains functions for reusable logic of the main file
+    - :page_facing_up: *`demo.py`* contains pre-created and loaded dummy data for demonstration purposes
 - :file_folder: *`scripts`* directory contains script files
-    - :memo: *`deploy.sh`* AWS deployment automation script
+    - :page_facing_up: *`deploy.sh`* AWS deployment automation script
 - :file_folder: *`website`* directory contains website data like HTML pages etc.
     - :file_folder: *`templates`* pre-rendered .html webpages
-        - :memo: *`add_item.html`*
-        - :memo: *`add_user.html`*
-        - :memo: *`assign_item.html`*
-        - :memo: *`base.html`*
-        - :memo: *`delete_item.html`*
-        - :memo: *`index.html`*
-        - :memo: *`modify_item_form.html`* 
-        - :memo: *`modify_item_select.html`*
-        - :memo: *`show_stock_items.html`* 
-        - :memo: *`show_user_items_select.html`*
-        - :memo: *`show_user_items.html`*
-        - :memo: *`show_users.html`*
-        - :memo: *`stock_by_categoeirs.html`*
-    - :memo: *`app.py`* main webserver file
-    - :memo: *`data.py`* database data webserver file
-    - :memo: *`demo.py`* dummy pre-loaded data webserver file
+        - :page_facing_up: *`add_item.html`*
+        - :page_facing_up: *`add_user.html`*
+        - :page_facing_up: *`assign_item.html`*
+        - :page_facing_up: *`base.html`*
+        - :page_facing_up: *`delete_item.html`*
+        - :page_facing_up: *`index.html`*
+        - :page_facing_up: *`modify_item_form.html`* 
+        - :page_facing_up: *`modify_item_select.html`*
+        - :page_facing_up: *`show_stock_items.html`* 
+        - :page_facing_up: *`show_user_items_select.html`*
+        - :page_facing_up: *`show_user_items.html`*
+        - :page_facing_up: *`show_users.html`*
+        - :page_facing_up: *`stock_by_categoeirs.html`*
+    - :page_facing_up: *`app.py`* main webserver file
+    - :page_facing_up: *`data.py`* database data webserver file
+    - :page_facing_up: *`demo.py`* dummy pre-loaded data webserver file
 
 ## 3. Deployment and Implementation
 ### 3.1 Getting Started
