@@ -340,8 +340,6 @@ docker push $IMAGE_URI
     - :memo: *`app.py`* main webserver file
     - :memo: *`data.py`* database data webserver file
     - :memo: *`demo.py`* dummy pre-loaded data webserver file
-    - :memo: *`it-asset-management.conf`* website configuration file for Apache
-    - :memo: *`wsgi.py`* routing file for WSGI in order to work with Flask
 
 ## 3. Deployment and Implementation
 ### 3.1 Getting Started
