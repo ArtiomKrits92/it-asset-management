@@ -369,7 +369,7 @@ Test Python application in local environment in order to check it's workability:
 Test Webserver application running on Flask in local environment in order to check it's workability:
 - *`pip install flask`* for Flask module installation in Visual Studio Code
 - Run the *`app.py`* application file from *`website`* folder
-- Browse http://localhost:31415
+- Browse *`http://localhost:31415`*
 
 ### 3.5 Migration to Webserver Using Flask and Docker Container
 Migrate the Python application to Apache webserver using Flask module and Docker Containerization and perform test in local environment:
