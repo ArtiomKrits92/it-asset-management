@@ -26,11 +26,12 @@ Make your IT Asset Management process simple and controlled. This web-based, run
     [3.1 Getting Started](#31-getting-started)<br>
     [3.2 Cloning Github Repository](#32-cloning-github-repository)<br>
     [3.3 Testing Python Application in Local Environment](#33-testing-python-application-in-local-environment)<br>
-    [3.4 Code Migration to Webserver Using Flask and Docker Container](#34-code-migration-to-webserver-using-flask-and-docker-container)<br>
-    [3.5 AWS Setup and Cloud Deployment](#35-aws-setup-and-cloud-deployment)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.5.1 Setting AWS Lab Credentials](#351-setting-aws-lab-credentials)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.5.2 Running Automated Deployment Script](#352-running-automated-deployment-script)<br>
-    [3.6 Web Application Access and HA Testing via AWS GUI](#36-web-application-access-and-ha-testing-via-aws-gui)<br>
+    [3.4 Testing Webserver Application in Local Environment](#34-testing-webserver-application-in-local-environment)<br>
+    [3.5 Migration to Webserver Using Flask and Docker Container](#35-migration-to-webserver-using-flask-and-docker-container)<br>
+    [3.6 AWS Setup and Cloud Deployment](#36-aws-setup-and-cloud-deployment)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.6.1 Setting AWS Lab Credentials](#361-setting-aws-lab-credentials)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[3.6.2 Running Automated Deployment Script](#362-running-automated-deployment-script)<br>
+    [3.7 Web Application Access and HA Testing via AWS GUI](#37-web-application-access-and-ha-testing-via-aws-gui)<br>
 4. [License](#4-license)<br>
 5. [Authors](#5-authors)<br>
 6. [Feedback](#6-feedback)<br>
@@ -349,6 +350,7 @@ Before starting, ensure to check your environment is ready to go:
 - Git Installed - *[Git Downloads](https://git-scm.com/downloads)*
 - Python Installed - *[Download Python](https://www.python.org/downloads/)*
 - AWS Sandbox Lab is Running - *[AWS Academy Login](https://awsacademy.instructure.com/)*
+- Verify that Python installation path is added to Windows Environment Variables
 
 ### 3.2 Cloning Github Repository
 *`Git Bash`* application or *`Visual Studio Code terminal`* will be used for the deployment in the next steps:
@@ -363,26 +365,32 @@ Test Python application in local environment in order to check it's workability:
 - Open the project directory folder in Visual Studio Code
 - Run the *`main.py`* application file from *`python`* folder
 
-### 3.4 Code Migration to Webserver Using Flask and Docker Container
+### 3.4 Testing Webserver Application in Local Environment
+Test Webserver application running on Flask in local environment in order to check it's workability:
+- *`pip install flask`* for Flask module installation in Visual Studio Code
+- Run the *`app.py`* application file from *`website`* folder
+- Browse http://localhost:31415
+
+### 3.5 Migration to Webserver Using Flask and Docker Container
 Migrate the Python application to Apache webserver using Flask module and Docker Containerization and perform test in local environment:
 - *`docker build -f docker/Dockerfile -t it-asset-management .`* to build image based on Dockerfile
 - *`docker run -d -p 31415:31415 --name my-app it-asset-management`* to run container based on the image
 - *`curl http://localhost:31415`* to verify running
 - *`docker stop my-app && docker rm my-app`* for cleanup performing
 
-### 3.5 AWS Setup and Cloud Deployment
-#### 3.5.1 Setting AWS Lab Credentials
+### 3.6 AWS Setup and Cloud Deployment
+#### 3.6.1 Setting AWS Lab Credentials
 - *`export AWS_ACCESS_KEY_ID=<access-key-data>`* to export AWS access key value
 - *`export AWS_SECRET_ACCESS_KEY=<secret-key-data>`* to export AWS secret key value
 - *`export AWS_SESSION_TOKEN=<token-data>`* to export AWS Session token value
 - *`export AWS_DEFAULT_REGION=us-east-1`* to set up the default region value
 - *`aws sts get-caller-identity`* to verify workability
 
-#### 3.5.2 Running Automated Deployment Script
+#### 3.6.2 Running Automated Deployment Script
 - *`bash scripts/deploy.sh`* to complete environment deploying using automation script
 - Wait up to 5-10 minutes for all environment creation
 
-### 3.6 Web Application Access and HA Testing via AWS GUI
+### 3.7 Web Application Access and HA Testing via AWS GUI
  - Retrieve Load Balancer URL via AWS GUI and access cloud application
  - Take a look on EC2 instances running
  - Test HA by stopping one instance (verify that another one new instance will be created to replace stopped/failed instance)
